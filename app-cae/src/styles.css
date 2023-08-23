@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+.margem {
+    margin: auto;
+    max-width: 400px;
+}
+
+.borda-botao {
+    margin-right: 5px;
+}
+
