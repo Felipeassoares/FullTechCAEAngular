@@ -11,6 +11,10 @@ const routes: Routes = [
   { path: "apresentacao", component: ApresentacaoComponent },
   { path: "apartamentos", component: ApartamentosComponent },
   { path: "apartamentos/novo", component: ApartamentoNovoComponent },
+
+  {path: "veiculos", loadChildren: 
+  () => import ('./modules/veiculos/veiculos.module').then(m => m.VeiculosModule)},
+
   { path:"**", component: NotFoundComponent }
 ];
 
