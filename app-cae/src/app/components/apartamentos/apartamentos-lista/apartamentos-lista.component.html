@@ -1,11 +1,22 @@
 <table class="table table-striped">
     <thead>
-        <th>ID</th>
-        <th>NUMERO</th>
-        <th>BLOCO</th>
-        <th>QNDVAGAS</th>
+        <tr>
+            <th>ID</th>
+            <th>NUMERO</th>
+            <th>BLOCO</th>
+            <th>QNDVAGAS</th>
+            <th></th>
     </thead>
     <tbody>
-        
+        <tr *ngFor="let a of apartamentos">
+            <td>{{a.id}}</td>
+            <td>{{a.numero}}</td>
+            <td>{{a.bloco}}</td>
+            <td>{{a.qndvagas}}</td>
+            <td>
+                <a routerLink="/apartamentos/alteracao/{{a.id}}"><i class="bi bi-pencil"></i></a> |
+                <a routerLink="/apartamentos/remocao/{{a.id}}"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
     </tbody>
 </table>

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +14,8 @@ import { ApresentacaoComponent } from './components/apresentacao/apresentacao.co
 import { ApartamentosListaComponent } from './components/apartamentos/apartamentos-lista/apartamentos-lista.component';
 import { ApartamentoNovoComponent } from './components/apartamentos/apartamento-novo/apartamento-novo.component';
 import { ApartamentosComponent } from './components/apartamentos/apartamentos/apartamentos.component';
+import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
+import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 
 @NgModule({
   declarations: [
@@ -21,17 +26,21 @@ import { ApartamentosComponent } from './components/apartamentos/apartamentos/ap
     NotFoundComponent,
     ApartamentosComponent,
     ApartamentoNovoComponent,
-    ApartamentosListaComponent
+    ApartamentosListaComponent,
+    ApartamentoAlteracaoComponent,
+    ApartamentoRemocaoComponent
 
 
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    ApartamentoService
+    ApartamentoService,
   ],
   bootstrap: [AppComponent]
 })
