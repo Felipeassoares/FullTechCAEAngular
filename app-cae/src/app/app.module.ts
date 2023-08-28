@@ -16,6 +16,7 @@ import { ApartamentoNovoComponent } from './components/apartamentos/apartamento-
 import { ApartamentosComponent } from './components/apartamentos/apartamentos/apartamentos.component';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
+import { VagaService } from './services/vaga.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamen
   ],
   providers: [
     ApartamentoService,
+    VagaService,
   ],
   bootstrap: [AppComponent]
 })
