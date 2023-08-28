@@ -15,22 +15,39 @@ export class ProprietariosNovoComponent implements OnInit {
     private service: ProprietariosService) { }
 
   ngOnInit(): void {
-    this.service.getApartamentosDisponiveis().subscribe(apartamentos => {
-      this.apartamentosDisponiveis = apartamentos;
-    });
+    this.carregarApartamentosDisponiveis();
   }
 
   apartamentosDisponiveis: Apartamento[] = [];
   proprietario: Proprietario = new Proprietario();
+  apartamentoSelecionado: number | undefined; // Alterado para permitir 'undefined'
+
+  carregarApartamentosDisponiveis(): void {
+    this.service.getApartamentosDisponiveis().subscribe(apartamentos => {
+      this.service.getProprietariosApi().subscribe(proprietarios => {
+        this.apartamentosDisponiveis = apartamentos.filter(apart => {
+          return !proprietarios.some(prop => prop.apartamento === apart.id);
+        });
+      });
+    });
+  }
 
   fechar(): void {
     this.router.navigate(['proprietarios']);
   }
 
   incluir(proprietario: Proprietario): void {
-    this.service.postProprietarioApi(proprietario).subscribe({
-      complete: () => this.fechar(),
-      error: erro => console.error(erro.message)
-    });
+    // if (this.apartamentoSelecionado !== undefined) {
+    //   proprietario.apartamento = this.apartamentoSelecionado;
+    // }
+  
+    this.service.postProprietarioApi(proprietario)
+      .subscribe({
+        complete: () => this.fechar(),
+        error: erro => {
+           console.error(erro);
+           window.alert(erro);
+        }
+      });
   }
 }

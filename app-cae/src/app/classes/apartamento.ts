@@ -1,13 +1,13 @@
 export class Apartamento {
 
     constructor() {
-        this.id ;
+        this.id = undefined;
         this.numero = '';
         this.bloco = '';
         this.qndvagas = 0;
     }
 
-    id?: number;
+    id?: number | undefined;
     numero: string;
     bloco: string;
     qndvagas: number;

@@ -7,18 +7,17 @@ import { ProprietariosService } from 'src/app/services/proprietarios.service';
   templateUrl: './proprietarios-lista.component.html',
   styleUrls: ['./proprietarios-lista.component.css']
 })
-
-export class ProprietariosListaComponent implements OnInit{
+export class ProprietariosListaComponent implements OnInit {
 
   constructor(private service: ProprietariosService) { }
 
-  ngOnInit(): void {
-    this.listar();
+  proprietarios: Proprietario[] = [];
+
+  listarProprietarios(): void {
+    this.service.getProprietariosApi().subscribe(resposta => this.proprietarios = resposta);
   }
 
-  proprietarios: any[] = []; // Altere o tipo para any[]
-
-  listar(): void {
-    this.service.getProprietariosApi().subscribe(resposta => this.proprietarios = resposta);
+  ngOnInit(): void {
+    this.listarProprietarios();
   }
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Proprietario } from '../classes/proprietario';
-import { HttpClient } from '@angular/common/http';
 import { Apartamento } from '../classes/apartamento';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ProprietariosService {
@@ -12,15 +12,21 @@ export class ProprietariosService {
   baseUrl: string = "http://localhost:8080/api/proprietarios/";
 
   public getApartamentosDisponiveis(): Observable<Apartamento[]> {
-    return this.http.get<Apartamento[]>(this.baseUrl + 'apartamentos/disponiveis');
-}
-  
-  public getProprietariosApi(): Observable<any[]> {
-    return this.http.get<any[]>(this.baseUrl);
+    const url = "http://localhost:8080/api/apartamentos/";
+    return this.http.get<Apartamento[]>(url);
   }
-  //inclusão de produto
+
+  public getProprietariosApi() : Observable<Proprietario[]> {
+    return this.http.get<Proprietario[]>(this.baseUrl);
+  }
+
+  public getProprietarioApi(cpf: string) : Observable<Proprietario> {
+    const url = `${this.baseUrl}${cpf}`;
+    return this.http.get<Proprietario>(url);
+  }
+
   public postProprietarioApi(proprietario: Proprietario): Observable<Proprietario> {
     return this.http.post<Proprietario>(this.baseUrl, proprietario);
   }
-
+  
 }
