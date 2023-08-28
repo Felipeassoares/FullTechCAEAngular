@@ -1,0 +1,16 @@
+<table class="table table-striped">
+        <thead>
+            <th>PLACA</th>
+            <th>COR</th>
+            <th>MODELO</th>
+            <th>VAGA</th>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let v of veiculos">
+                <td>{{v.placa}}</td>
+                <td>{{v.cor}}</td>
+                <td>{{v.modelo}}</td>
+                <td>{{v.vaga}}</td>
+            </tr>
+        </tbody>
+    </table>
