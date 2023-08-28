@@ -4,29 +4,30 @@
 
         <div class="mb-3">
             <label class="form-label">Cpf:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.cpf" />
+            <input type="text" class="form-control" [(ngModel)]="proprietario.cpf" name="cpf"/>
         </div>
         <div class="mb-3">
             <label class="form-label">Nome:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.nome" />
+            <input type="text" class="form-control" [(ngModel)]="proprietario.nome" name="nome"/>
         </div>
         <div class="mb-3">
             <label class="form-label">Telefone:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.telefone" />
+            <input type="text" class="form-control" [(ngModel)]="proprietario.telefone" name="telefone"/>
         </div>
         <div class="mb-3">
             <label class="form-label">DtNascimento:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.dtNascimento" />
+            <input type="text" class="form-control" [(ngModel)]="proprietario.dtNascimento" name="dtNascimento"/>
         </div>
+
         <div class="mb-3">
             <label class="form-label">Email:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.email" />
+            <input type="text" class="form-control" [(ngModel)]="proprietario.email" name="email"/>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Apartamento:</label>
-            <select class="form-select" [(ngModel)]="proprietario.apartamento" name="apartamento">
-                <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">{{ apartamento.id }}</option>
+            <select class="form-select" [(ngModel)]="apartamentoSelecionado" name="apartamento">
+                <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">{{ apartamento.numero }}</option>
             </select>
         </div>
         

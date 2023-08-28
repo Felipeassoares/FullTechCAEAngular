@@ -13,9 +13,6 @@ import { ApresentacaoComponent } from './components/apresentacao/apresentacao.co
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { VeiculosListaComponent } from './components/veiculos/veiculos-lista/veiculos-lista.component';
-import { VeiculosNovoComponent } from './components/veiculos/veiculos-novo/veiculos-novo.component';
-import { VeiculosComponent } from './components/veiculos/veiculos/veiculos.component';
 import { ApartamentoService } from './services/apartamento.service';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
@@ -30,9 +27,6 @@ import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamen
     ApartamentosComponent,
     ApartamentoNovoComponent,
     ApartamentosListaComponent,
-    VeiculosComponent,
-    VeiculosNovoComponent,
-    VeiculosListaComponent,  
     ApartamentoAlteracaoComponent,
     ApartamentoRemocaoComponent   
   ],

@@ -14,6 +14,12 @@ export class VeiculoService {
     public getVeiculosApi() : Observable<Veiculo[]> {
       return this.http.get<Veiculo[]>(this.baseUrl);
     }  
+
+    public getVeiculoApi(placa: string) : Observable<Veiculo> {
+      const url = `${this.baseUrl}${placa}`;
+      return this.http.get<Veiculo>(url);
+    }
+  
   
     // inclusão de um novo veiculo
     public postVeiculoApi(veiculo: Veiculo) : Observable<Veiculo> {

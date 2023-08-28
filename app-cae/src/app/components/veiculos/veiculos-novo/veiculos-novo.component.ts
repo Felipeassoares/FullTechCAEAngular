@@ -18,7 +18,7 @@ export class VeiculosNovoComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  vagas: Vaga[] = [];
+ // vagas: Vaga[] = [];
   veiculo: Veiculo = new Veiculo();  
 
     fechar() { 

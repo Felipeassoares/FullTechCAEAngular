@@ -7,13 +7,17 @@ import { VeiculosListaComponent } from 'src/app/components/veiculos/veiculos-lis
 import { VeiculosNovoComponent } from 'src/app/components/veiculos/veiculos-novo/veiculos-novo.component';
 import { FormsModule } from '@angular/forms';
 import { VeiculoService } from 'src/app/services/veiculo.service';
+import { VeiculoRemocaoComponent } from '../../components/veiculos/veiculo-remocao/veiculo-remocao.component';
+import { VeiculoAlteracaoComponent } from '../../components/veiculos/veiculo-alteracao/veiculo-alteracao.component';
 
 
 @NgModule({
   declarations: [
     VeiculosComponent,
     VeiculosListaComponent,
-    VeiculosNovoComponent
+    VeiculosNovoComponent,
+    VeiculoRemocaoComponent,
+    VeiculoAlteracaoComponent
   ],
   imports: [
     CommonModule,
