@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ApartamentoNovoComponent } from './components/apartamentos/apartamento-novo/apartamento-novo.component';
 import { ApartamentosComponent } from './components/apartamentos/apartamentos/apartamentos.component';
 import { ApresentacaoComponent } from './components/apresentacao/apresentacao.component';
-import { ApartamentoNovoComponent } from './components/apartamentos/apartamento-novo/apartamento-novo.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
+import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,6 +17,11 @@ const routes: Routes = [
   {path: "veiculos", loadChildren: 
   () => import ('./modules/veiculos/veiculos.module').then(m => m.VeiculosModule)},
 
+  { path: "apartamentos/alteracao/:id", component: ApartamentoAlteracaoComponent },
+  { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent },
+  
+  { path: "proprietarios", loadChildren:
+  () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule)},
   { path:"**", component: NotFoundComponent }
 ];
 

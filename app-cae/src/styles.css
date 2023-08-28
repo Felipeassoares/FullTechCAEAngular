@@ -7,3 +7,27 @@
     margin-right: 5px;
 }
 
+
+.conteudo-fundo {
+    background: url(assets/images/estacionamento.jpg) center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+
+
+}
+
+.conteudo-rodape {
+    background: url(assets/images/estacionamento.jpg) center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margem {
+    max-width: 400px;
+    margin: auto;
+}

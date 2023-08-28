@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { VeiculosListaComponent } from './components/veiculos/veiculos-lista/vei
 import { VeiculosNovoComponent } from './components/veiculos/veiculos-novo/veiculos-novo.component';
 import { VeiculosComponent } from './components/veiculos/veiculos/veiculos.component';
 import { ApartamentoService } from './services/apartamento.service';
+import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
+import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,9 @@ import { ApartamentoService } from './services/apartamento.service';
     ApartamentosListaComponent,
     VeiculosComponent,
     VeiculosNovoComponent,
-    VeiculosListaComponent
-  
+    VeiculosListaComponent,  
+    ApartamentoAlteracaoComponent,
+    ApartamentoRemocaoComponent   
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ import { ApartamentoService } from './services/apartamento.service';
     FormsModule
   ],
   providers: [
-    ApartamentoService
+    ApartamentoService,
   ],
   bootstrap: [AppComponent]
 })
