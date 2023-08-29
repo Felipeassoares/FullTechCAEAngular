@@ -20,7 +20,7 @@ export class ProprietariosNovoComponent implements OnInit {
 
   apartamentosDisponiveis: Apartamento[] = [];
   proprietario: Proprietario = new Proprietario();
-  apartamentoSelecionado: number | undefined; // Alterado para permitir 'undefined'
+  apartamentoSelecionado: number | undefined; 
 
   carregarApartamentosDisponiveis(): void {
     this.service.getApartamentosDisponiveis().subscribe(apartamentos => {
@@ -37,10 +37,11 @@ export class ProprietariosNovoComponent implements OnInit {
   }
 
   incluir(proprietario: Proprietario): void {
-    // if (this.apartamentoSelecionado !== undefined) {
-    //   proprietario.apartamento = this.apartamentoSelecionado;
-    // }
+    if (this.apartamentoSelecionado !== undefined) {
+      proprietario.apartamento = this.apartamentoSelecionado;
+    }
   
+    proprietario.dtNascimento.replace('/', '-');
     this.service.postProprietarioApi(proprietario)
       .subscribe({
         complete: () => this.fechar(),
