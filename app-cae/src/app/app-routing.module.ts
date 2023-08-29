@@ -7,8 +7,6 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
-import { VagaAlteracaoComponent } from './components/vagas/vaga-alteracao/vaga-alteracao.component';
-import { VagaRemocaoComponent } from './components/vagas/vaga-remocao/vaga-remocao.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },

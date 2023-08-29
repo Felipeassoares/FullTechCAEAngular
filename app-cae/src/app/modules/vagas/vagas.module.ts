@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
 
 import { VagasRoutingModule } from './vagas-routing.module';
@@ -6,18 +7,21 @@ import { VagasListaComponent } from '../../components/vagas/vagas-lista/vagas-li
 import { VagasComponent } from '../../components/vagas/vagas/vagas.component';
 import { VagaNovoComponent } from '../../components/vagas/vaga-novo/vaga-novo.component';
 import { VagaService } from 'src/app/services/vaga.service';
-import { FormsModule } from '@angular/forms'; 
+import { VagaRemocaoComponent } from 'src/app/components/vagas/vaga-remocao/vaga-remocao.component';
+import { VagaAlteracaoComponent } from 'src/app/components/vagas/vaga-alteracao/vaga-alteracao.component';
 
 @NgModule({
   declarations: [
     VagasListaComponent,
     VagasComponent,
-    VagaNovoComponent
+    VagaNovoComponent,
+    VagaRemocaoComponent,
+    VagaAlteracaoComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    VagasRoutingModule,
-    FormsModule
+    VagasRoutingModule
   ],
   providers: [
     VagaService

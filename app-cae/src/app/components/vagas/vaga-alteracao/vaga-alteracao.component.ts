@@ -36,81 +36,6 @@ export class VagaAlteracaoComponent implements OnInit {
     this.service.getVagaApi(id)
     .subscribe(resposta => this.vaga = resposta);
    }
-
-   /*ngOnInit(): void {
-
-    this.carregarApartamentosDisponiveis();
-
-  }
-
- 
-
-  apartamentosDisponiveis: Apartamento[] = [];
-
-  proprietario: Proprietario = new Proprietario();
-
-  apartamentoSelecionado: number | undefined;
-
- 
-
-  carregarApartamentosDisponiveis(): void {
-
-    this.service.getApartamentosDisponiveis().subscribe(apartamentos => {
-
-      this.service.getProprietariosApi().subscribe(proprietarios => {
-
-        this.apartamentosDisponiveis = apartamentos.filter(apart => {
-
-          return !proprietarios.some(prop => prop.apartamento === apart.id);
-
-        });
-
-      });
-
-    });
-
-  }
-
- 
-
-  fechar(): void {
-
-    this.router.navigate(['proprietarios']);
-
-  }
-
- 
-
-  incluir(proprietario: Proprietario): void {
-
-    // if (this.apartamentoSelecionado !== undefined) {
-
-    //   proprietario.apartamento = this.apartamentoSelecionado;
-
-    // }
-
- 
-
-    this.service.postProprietarioApi(proprietario)
-
-      .subscribe({
-
-        complete: () => this.fechar(),
-
-        error: erro => {
-
-           console.error(erro);
-
-           window.alert(erro);
-
-        }
-
-      });
-
-  }
-
-}*/
-
   
    fechar() : void {
     this.router.navigate(['/vagas']);
@@ -118,11 +43,11 @@ export class VagaAlteracaoComponent implements OnInit {
 
    alterar(vaga: Vaga) : void {
     this.service.putVagaApi(vaga, this.id).subscribe({
-      complete: () => this.fechar(),
+      complete: () => this.fechar()/*,
       error: erro => {
         console.error(erro);
         window.alert(erro);
-      }
-    })
+      }*/
+    });
    }
 }

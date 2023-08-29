@@ -3,11 +3,13 @@ export class Vaga {
         this.id = undefined;
         this.numero = '';
         this.bloco = '';
-        this.apartamento = 0;
+        this.apartamento = undefined;
+        this.idAP = this.apartamento;
     }
 
     id?: number;	
 	bloco: string;
 	numero: string;
-    apartamento: number;
+    apartamento?: number | undefined;
+    idAP?: number | undefined;
 }
