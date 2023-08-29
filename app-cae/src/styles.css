@@ -1,33 +1,55 @@
 .margem {
-    margin: auto;
-    max-width: 400px;
+  margin: auto;
+  max-width: 400px;
 }
 
 .borda-botao {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
-
 .conteudo-fundo {
-    background: url(assets/images/estacionamento.jpg) center center fixed;
-    background-size: cover;
-    width: 100%;
-    height: 400px;
-
-
+  background: url(assets/images/estacionamento.jpg) center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
 }
 
 .conteudo-rodape {
-    background: url(assets/images/estacionamento.jpg) center center fixed;
-    background-size: cover;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: url(assets/images/estacionamento.jpg) center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .margem {
-    max-width: 400px;
-    margin: auto;
+  max-width: 400px;
+  margin: auto;
+}
+
+.strColor {
+  color: var(--bs-purple);
+}
+
+.strLink {
+  color: var(--bs-purple);
+  font-size: 20px;
+}
+
+.strLink:hover {
+  color: red;
+}
+
+.btnColor {
+  background-color: var(--bs-purple);
+  color: var(--bs-white);
+
+  /* border-color: var(--bs-purple); */
+}
+
+input:focus {
+  border-color: var(--bs-purple);
+  box-shadow: 0 0 0 2px var(--bs-purple) inset;
 }
