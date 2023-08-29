@@ -1,30 +1,52 @@
 <div class="margem">
-    <h2 class="text-primary text-center">Alteração de Apartamentos</h2>
-    <form>
+  <h2 class="strColor text-center">Alteração de Apartamentos</h2>
+  <form>
+    <div class="mb-3">
+      <label class="form-label">Id:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="apartamento.id"
+        name="id"
+        readonly
+      />
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Id:</label>
-            <input type="text" class="form-control" [(ngModel)]="apartamento.id" name="id" readonly/>
-        </div>
+    <div class="mb-3">
+      <label class="form-label">Numero:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="apartamento.numero"
+        name="numero"
+      />
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Numero:</label>
-            <input type="text" class="form-control" [(ngModel)]="apartamento.numero" name="numero" />
-        </div>
+    <div class="mb-3">
+      <label class="form-label">Bloco:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="apartamento.bloco"
+        name="bloco"
+      />
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Bloco:</label>
-            <input type="text" class="form-control" [(ngModel)]="apartamento.bloco" name="bloco" />
-        </div>
+    <div class="mb-3">
+      <label class="form-label">QndVagas:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="apartamento.qndvagas"
+        name="qndvagas"
+      />
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">QndVagas:</label>
-            <input type="text" class="form-control" [(ngModel)]="apartamento.qndvagas" name="qndvagas" />
-        </div>
-
-        <div>
-            <button class="btn btn-primary borda-botao" (click)="alterar(apartamento)">Alterar Apartamento</button>
-            <button class="btn btn-secondary"(click)="fechar()">Voltar</button>
-        </div>
-    </form>
+    <div>
+      <button class="btn btnColor borda-botao" (click)="alterar(apartamento)">
+        Alterar Apartamento
+      </button>
+      <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
+    </div>
+  </form>
 </div>

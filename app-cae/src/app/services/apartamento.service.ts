@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Apartamento } from '../classes/apartamento';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 
 @Injectable()
@@ -25,9 +25,9 @@ export class ApartamentoService {
     return this.http.post<Apartamento>(this.baseUrl, apartamento);
   }
 
-  public putApartamentoApi(apartamento: Apartamento, id: number): Observable<Apartamento> {
+  public putApartamentoApi(apartamento: Apartamento, id: number): Observable<String> {
   const url = `${this.baseUrl}${id}`;
-  return this.http.put<Apartamento>(url, apartamento);
+  return this.http.put<String>(url, apartamento);
   }
 
   public deleteApartamento(id: number) : Observable<number> {

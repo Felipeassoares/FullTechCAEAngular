@@ -18,6 +18,10 @@ const routes: Routes = [
   
   { path: "proprietarios", loadChildren:
   () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule)},
+
+  { path: "usuarios", loadChildren:
+  () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule)},
+
   { path:"**", component: NotFoundComponent }
 ];
 

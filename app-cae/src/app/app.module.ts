@@ -16,6 +16,8 @@ import { ApartamentoNovoComponent } from './components/apartamentos/apartamento-
 import { ApartamentosComponent } from './components/apartamentos/apartamentos/apartamentos.component';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
+import { AddTextoPipe } from './pipes/add-texto.pipe';
+
 
 @NgModule({
   declarations: [
@@ -28,10 +30,8 @@ import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamen
     ApartamentoNovoComponent,
     ApartamentosListaComponent,
     ApartamentoAlteracaoComponent,
-    ApartamentoRemocaoComponent
-
-
-   
+    ApartamentoRemocaoComponent,
+    AddTextoPipe
   ],
   imports: [
     BrowserModule,
