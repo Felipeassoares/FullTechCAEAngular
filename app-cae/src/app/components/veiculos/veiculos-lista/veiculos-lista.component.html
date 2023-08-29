@@ -1,0 +1,20 @@
+<table class="table table-striped">
+        <thead>
+            <th>PLACA</th>
+            <th>COR</th>
+            <th>MODELO</th>
+            <th>VAGA</th>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let v of veiculos">
+                <td>{{v.placa}}</td>
+                <td>{{v.cor}}</td>
+                <td>{{v.modelo}}</td>
+                <td>{{v.vaga}}</td>
+                <td>
+                    <a routerLink="/veiculos/alteracao/{{v.placa}}"><i class="bi bi-pencil"></i></a> |
+                    <a routerLink="/veiculos/remocao/{{v.placa}}"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
