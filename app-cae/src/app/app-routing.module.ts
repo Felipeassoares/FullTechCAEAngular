@@ -22,6 +22,10 @@ const routes: Routes = [
   { path: "vagas", loadChildren:
   () => import('./modules/vagas/vagas.module').then(m => m.VagasModule)},
   
+
+  { path: "usuarios", loadChildren:
+  () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule)},
+
   { path:"**", component: NotFoundComponent }
 ];
 
