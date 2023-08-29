@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Veiculo } from '../classes/veiculo';
 import { Observable } from 'rxjs';
+import { Vaga } from '../classes/vaga';
 
 @Injectable()
 export class VeiculoService {
@@ -38,4 +39,10 @@ export class VeiculoService {
     const url = `${this.baseUrl}${placa}`;
     return this.http.delete<string>(url);
   }
+
+  public getVagasDisponiveis(): Observable<Vaga[]> {
+    const url = "http://localhost:8080/api/vagas/";
+    return this.http.get<Vaga[]>(url);
+  }
+
 }
