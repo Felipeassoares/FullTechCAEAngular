@@ -2,6 +2,10 @@
     <h2 class="text-success text-center">Novo Veiculo</h2>
     <form>
         <div class="mb-3">
+            <label class="form-label">Placa:</label>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa"/>
+        </div>
+        <div class="mb-3">
             <label class="form-label">Cor:</label>
             <input type="text" class="form-control" [(ngModel)]="veiculo.cor" name="cor"/>
         </div>
