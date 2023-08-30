@@ -9,6 +9,8 @@ import { VagaNovoComponent } from '../../components/vagas/vaga-novo/vaga-novo.co
 import { VagaService } from 'src/app/services/vaga.service';
 import { VagaRemocaoComponent } from 'src/app/components/vagas/vaga-remocao/vaga-remocao.component';
 import { VagaAlteracaoComponent } from 'src/app/components/vagas/vaga-alteracao/vaga-alteracao.component';
+import { AddTextoPipe } from 'src/app/pipes/add-texto.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { VagaAlteracaoComponent } from 'src/app/components/vagas/vaga-alteracao/
     VagasComponent,
     VagaNovoComponent,
     VagaRemocaoComponent,
-    VagaAlteracaoComponent
+    VagaAlteracaoComponent,
+    AddTextoPipe
   ],
   imports: [
     FormsModule,
     CommonModule,
-    VagasRoutingModule
+    VagasRoutingModule,
+    RouterModule
   ],
   providers: [
     VagaService

@@ -22,10 +22,11 @@ const routes: Routes = [
   
   { path: "proprietarios", loadChildren:
   () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule)},
-
+  
   { path: "vagas", loadChildren:
   () => import('./modules/vagas/vagas.module').then(m => m.VagasModule)},
   
+
   { path: "usuarios", loadChildren:
   () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule)},
 

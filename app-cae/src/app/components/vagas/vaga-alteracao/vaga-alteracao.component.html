@@ -4,12 +4,13 @@
 
         <div class="mb-3">
             <label class="form-label">Id:</label>
-            <input type="text" class="form-control" [(ngModel)]="vaga.id" name="id" readonly/>
+            <input type="text" class="form-control" [(ngModel)]="vaga.id" name="id" readonly disabled/>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Numero:</label>
-            <input type="text" class="form-control" [(ngModel)]="vaga.numero" name="numero" />
+            <input type="text" class="form-control" [(ngModel)]="vaga.numero" name="numero" (blur)="validarVaga()"/>
+            <span *ngIf="vagaExistente" style="color: red;"><i>* Este número de vaga já está cadastrada no sistema.</i></span>
         </div>
 
         <div class="mb-3">
@@ -19,11 +20,12 @@
 
         <div class="mb-3"> 
             <label class="form-label">Apartamento:</label>
-            <input type="text" class="form-control" [(ngModel)]="vaga.apartamento" name="apartamento" />
+            <input type="text" class="form-control" [(ngModel)]="vaga.numeroApt + '-' + vaga.blocoAp" [value]="apartamento" name="apartamento" readonly disabled/>
         </div>
 
-        <div>
-            <button class="btn btn-primary borda-botao" (click)="alterar(vaga)">Alterar Vaga</button>
+        <div>            
+            <button *ngIf="vagaExistente" class="btn btn-success borda-botao" (click)="alterar(vaga)" disabled>Alterar Vaga</button>
+            <button *ngIf="!vagaExistente" class="btn btn-success borda-botao" (click)="alterar(vaga)">Alterar Vaga</button>
             <button class="btn btn-secondary"(click)="fechar()">Voltar</button>
         </div>
     </form>

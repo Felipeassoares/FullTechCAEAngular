@@ -16,7 +16,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApartamentoService } from './services/apartamento.service';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
-
 import { VagaService } from './services/vaga.service';
 import { AddTextoPipe } from './pipes/add-texto.pipe';
 
