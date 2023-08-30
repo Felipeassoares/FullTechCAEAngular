@@ -1,0 +1,37 @@
+<div class="margem">
+    <h2 class="text-success text-center">Novo Veiculo</h2>
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Placa:</label>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Cor:</label>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.cor" name="cor"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Modelo:</label>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.modelo" name="preco"/>
+        </div>
+       <!--- <div class="mb-3">
+            <label class="form-label">Vaga:</label>
+            <select class="form-select" [(ngModel)]="veiculo.vaga" name="vaga">
+                <option *ngFor="let vg of vagas" [value]="vg.">{{vg.bloco}} {{vg.numero}}</option>
+            </select>
+        </div>-->
+
+              <div class="mb-3">
+            <label class="form-label">Vaga:</label>
+            <select class="form-select">
+                <option >Bloco numero</option>
+            </select>
+        </div>
+      
+     
+        
+        <div>
+            <button class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
+            <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
+        </div>
+    </form>
+</div>

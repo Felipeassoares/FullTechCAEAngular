@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vaga } from '../classes/vaga';
+import { Apartamento } from '../classes/apartamento';
 
 @Injectable()
 export class VagaService {
@@ -10,7 +11,11 @@ export class VagaService {
 
   baseUrl : string = 'http://localhost:8080/api/vagas/';
 
-  
+  public getApartamentosVagaDisponiveis(): Observable<Apartamento[]> {
+    const url = "http://localhost:8080/api/apartamentos/";
+    return this.http.get<Apartamento[]>(url);
+  }
+
   public getVagasApi() : Observable<Vaga[]> {
     return this.http.get<Vaga[]>(this.baseUrl);
   }
