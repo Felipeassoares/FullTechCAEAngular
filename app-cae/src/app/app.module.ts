@@ -15,11 +15,10 @@ import { ApresentacaoComponent } from './components/apresentacao/apresentacao.co
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ApartamentoService } from './services/apartamento.service';
-
+import { RodapeComponent } from './components/rodape/rodape.component';
 import { AddTextoPipe } from './pipes/add-texto.pipe';
+import { ApartamentoService } from './services/apartamento.service';
 import { VagaService } from './services/vaga.service';
-
 
 
 @NgModule({
@@ -34,8 +33,9 @@ import { VagaService } from './services/vaga.service';
     ApartamentosListaComponent,
     ApartamentoAlteracaoComponent,
     ApartamentoRemocaoComponent,
-    AddTextoPipe
-
+    AddTextoPipe,
+    RodapeComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,5 +48,6 @@ import { VagaService } from './services/vaga.service';
     VagaService,
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
