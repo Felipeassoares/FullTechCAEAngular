@@ -24,6 +24,7 @@ export class VeiculoAlteracaoComponent implements OnInit{
     this.buscar(this.placa);
     this.carregarVagasDisponiveis();
     this.vagaSelecionada = this.veiculo.idVaga;
+   // this.vagaAtualSelecionada = this.veiculo.idVaga;
     
   }
 
@@ -35,6 +36,7 @@ export class VeiculoAlteracaoComponent implements OnInit{
   vagasDisponiveis: Vaga[] = [];
   vagaAtual: Vaga[] = []; // propriedade para armazenar as vagas ocupadas
   vagaSelecionada: number | undefined;
+  vagaAtualSelecionada: number | undefined;
 
   carregarVagasDisponiveis(): void {    
     this.service.getVagasDisponiveis().subscribe(vagas => {
@@ -62,7 +64,12 @@ export class VeiculoAlteracaoComponent implements OnInit{
   alterar(veiculo: Veiculo) {
     if (this.vagaSelecionada !== undefined) {
       veiculo.idVaga = this.vagaSelecionada;
-    }
+    }    
+    
+    // else{
+    //   veiculo.idVaga = this.vagaAtualSelecionada;
+
+    // }
     
     this.service.putVeiculoApi(veiculo, this.placa)
       .subscribe({
