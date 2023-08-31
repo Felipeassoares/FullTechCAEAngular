@@ -18,6 +18,7 @@ import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartam
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 import { VagaService } from './services/vaga.service';
 import { AddTextoPipe } from './pipes/add-texto.pipe';
+import { RodapeComponent } from './components/rodape/rodape.component';
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import { AddTextoPipe } from './pipes/add-texto.pipe';
     ApartamentosListaComponent,
     ApartamentoAlteracaoComponent,
     ApartamentoRemocaoComponent,
-    AddTextoPipe
+    AddTextoPipe,
+    RodapeComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -45,5 +48,6 @@ import { AddTextoPipe } from './pipes/add-texto.pipe';
     VagaService,
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
