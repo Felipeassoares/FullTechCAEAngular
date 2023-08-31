@@ -3,7 +3,8 @@
     <form>
         <div class="mb-3">
             <label class="form-label">Placa:</label>
-            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa"/>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa" (blur)="validarVeiculo()" />
+            <span *ngIf="veiculoExistente" style="color: red;"><i>* Este veículo já está cadastrado</i></span>
         </div>
         <div class="mb-3">
             <label class="form-label">Cor:</label>
@@ -30,7 +31,8 @@
      
         
         <div>
-            <button class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
+            <button *ngIf="veiculoExistente" class="btn btn-success borda-botao" (click)="incluir(veiculo)" disabled>Incluir Veiculo</button>
+            <button *ngIf="!veiculoExistente" class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
             <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
         </div>
     </form>

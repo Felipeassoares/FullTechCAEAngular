@@ -37,14 +37,16 @@ export class VagaRemocaoComponent implements OnInit {
   }
 
   buscar(id: number): void {
-    this.service.getVagaApi(id).subscribe(resposta => this.vaga = resposta);
+    this.service.getVagaApi(id).subscribe(resposta => {
+      this.vaga = resposta;
 
-    if (this.vaga.apartamento !== undefined) {
-      this.apartamentoService.getApartamentoApi(this.vaga.apartamento).subscribe(apartamentoResposta => {
-        this.apartamento = apartamentoResposta;
-        this.vaga.blocoAp = apartamentoResposta.bloco;
-      });
-    }
+      if (this.vaga.apartamento !== undefined) {
+        this.apartamentoService.getApartamentoApi(this.vaga.apartamento).subscribe(apartamentoResposta => {
+          this.apartamento = apartamentoResposta;
+          this.vaga.blocoAp = apartamentoResposta.bloco;
+        });
+      }
+    });
   }
 
   fechar() {

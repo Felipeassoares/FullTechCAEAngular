@@ -19,6 +19,7 @@ export class VeiculosNovoComponent implements OnInit {
   ngOnInit(): void {
     this.carregarVagasDisponiveis();
   }
+  
 
   vagasDisponiveis: Vaga[] = [];
   veiculo: Veiculo = new Veiculo();  
@@ -34,6 +35,14 @@ export class VeiculosNovoComponent implements OnInit {
     });
   }
 
+  veiculoExistente: boolean = false; 
+
+  validarVeiculo(): void {
+    this.service.getVeiculosApi().subscribe(veiculos => {
+      this.veiculoExistente = veiculos.some(vc => vc.placa === this.veiculo.placa);
+    });
+
+  }
 
     fechar() { 
       this.router.navigate(['veiculos']) ;
