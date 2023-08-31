@@ -29,4 +29,14 @@ export class ProprietariosService {
     return this.http.post<Proprietario>(this.baseUrl, proprietario);
   }
   
+      public putProprietarioApi(proprietario: Proprietario, cpf: string): Observable<Proprietario> {
+      const url = `${this.baseUrl}${cpf}`;
+      return this.http.put<Proprietario>(url, proprietario);
+      }
+    
+
+      public deleteProprietario(cpf: string) : Observable<string> {
+        const url = `${this.baseUrl}${cpf}`;
+        return this.http.delete<string>(url);
+      }
 }

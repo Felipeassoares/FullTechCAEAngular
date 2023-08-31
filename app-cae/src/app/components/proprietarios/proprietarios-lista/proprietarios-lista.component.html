@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>CPF</th>
@@ -7,11 +7,13 @@
       <th>DTNASCIMENTO</th>
       <th>EMAIL</th>
       <th>APARTAMENTO</th>
-      <th>NUMERO APARTAMENTO</th>
-      <th>BLOCO APARTAMENTO</th>
+      <th>NUM APTO</th>
+      <th>BLOCO APTO</th>
       <th>QND VAGAS</th>
+      <th></th>
     </tr>
   </thead>
+
   <tbody>
     <tr *ngFor="let p of proprietarios">
       <td>{{ p.cpf }}</td>
@@ -23,6 +25,12 @@
       <td>{{ p.numeroApartamento }}</td>
       <td>{{ p.blocoApartamento }}</td>
       <td>{{ p.qndVagasApartamento }}</td>
+      
+      <td>
+        <a routerLink="/proprietarios/alteracao/{{ p.cpf }}"><i class="bi bi-pencil strColor"></i></a> |
+        <a routerLink="/proprietarios/remocao/{{ p.cpf }}"><i class="bi bi-trash strColor"></i></a>
+      </td>
     </tr>
   </tbody>
 </table>
+
