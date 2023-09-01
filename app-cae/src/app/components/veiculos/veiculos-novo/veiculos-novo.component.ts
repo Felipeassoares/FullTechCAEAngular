@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Vaga } from 'src/app/classes/vaga';
 import { Veiculo } from 'src/app/classes/veiculo';
+import { VagaService } from 'src/app/services/vaga.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
 
 @Component({
@@ -15,21 +17,48 @@ export class VeiculosNovoComponent implements OnInit {
     private service: VeiculoService){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.carregarVagasDisponiveis();
+  }
+  
+
+  vagasDisponiveis: Vaga[] = [];
+  veiculo: Veiculo = new Veiculo();  
+  vagaSelecionada: number | undefined;
+
+  carregarVagasDisponiveis(): void {
+    this.service.getVagasDisponiveis().subscribe(vagas => {
+      this.service.getVeiculosApi().subscribe(veiculos => {
+        this.vagasDisponiveis = vagas.filter(vg => {
+          return !veiculos.some(vc => vc.vaga === vg.id);
+        });
+      });
+    });
   }
 
- // vagas: Vaga[] = [];
-  veiculo: Veiculo = new Veiculo();  
+  veiculoExistente: boolean = false; 
+
+  validarVeiculo(): void {
+    this.service.getVeiculosApi().subscribe(veiculos => {
+      this.veiculoExistente = veiculos.some(vc => vc.placa === this.veiculo.placa);
+    });
+
+  }
 
     fechar() { 
-      this.router.navigate(['/veiculos']) ;
+      this.router.navigate(['veiculos']) ;
     }
   
     incluir(veiculo: Veiculo) : void {
-       this.service.postVeiculoApi(veiculo)
+      if (this.vagaSelecionada !== undefined) {
+        veiculo.idVaga = this.vagaSelecionada;
+      }
+
+         this.service.postVeiculoApi(veiculo)
          .subscribe({
           complete: () => this.fechar(),
-          error: erro => console.error(erro.message)
+          error: erro => {
+            console.error(erro.message);
+            window.alert(erro)}
           });
     }
 

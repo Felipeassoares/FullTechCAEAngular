@@ -2,6 +2,11 @@
     <h2 class="text-success text-center">Novo Veiculo</h2>
     <form>
         <div class="mb-3">
+            <label class="form-label">Placa:</label>
+            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa" (blur)="validarVeiculo()" />
+            <span *ngIf="veiculoExistente" style="color: red;"><i>* Este veículo já está cadastrado</i></span>
+        </div>
+        <div class="mb-3">
             <label class="form-label">Cor:</label>
             <input type="text" class="form-control" [(ngModel)]="veiculo.cor" name="cor"/>
         </div>
@@ -18,15 +23,16 @@
 
               <div class="mb-3">
             <label class="form-label">Vaga:</label>
-            <select class="form-select">
-                <option >Bloco numero</option>
+            <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
+                <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id">BL: {{vaga.bloco}} NUM: {{vaga.numero}}</option>
             </select>
-        </div>
-      
+        </div>     
+        
      
         
         <div>
-            <button class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
+            <button *ngIf="veiculoExistente" class="btn btn-success borda-botao" (click)="incluir(veiculo)" disabled>Incluir Veiculo</button>
+            <button *ngIf="!veiculoExistente" class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
             <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
         </div>
     </form>

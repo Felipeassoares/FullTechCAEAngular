@@ -27,7 +27,7 @@
         <div class="mb-3">
             <label class="form-label">Apartamento:</label>
             <select class="form-select" [(ngModel)]="apartamentoSelecionado" name="apartamento">
-                <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">{{ apartamento.numero }}</option>
+                <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">{{ apartamento.id }}</option>
             </select>
         </div>
         

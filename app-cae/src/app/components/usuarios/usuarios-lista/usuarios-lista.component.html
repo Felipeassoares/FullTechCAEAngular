@@ -1,0 +1,21 @@
+<div class="mb-3">
+  <label class="form-label">Informe partes do nome:</label>
+  <input type="text" class="form-control" #busca (keyup)="(0)" />
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <th>NOME</th>
+    <th>EMAIL</th>
+    <th>DATA CADASTRO</th>
+    <th>NIVEL ACESSO</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios | filtrarusuarios : busca.value">
+      <td>{{ u.nome | uppercase }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.dtCadastro | date : "dd/MM/yyyy" }}</td>
+      <td>{{ u.nivelAcesso }}</td>
+    </tr>
+  </tbody>
+</table>

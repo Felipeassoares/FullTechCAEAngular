@@ -1,22 +1,29 @@
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>NUMERO</th>
-            <th>BLOCO</th>
-            <th>QNDVAGAS</th>
-            <th></th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let a of apartamentos">
-            <td>{{a.id}}</td>
-            <td>{{a.numero}}</td>
-            <td>{{a.bloco}}</td>
-            <td>{{a.qndvagas}}</td>
-            <td>
-                <a routerLink="/apartamentos/alteracao/{{a.id}}"><i class="bi bi-pencil"></i></a> |
-                <a routerLink="/apartamentos/remocao/{{a.id}}"><i class="bi bi-trash"></i></a>
-            </td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>NÚMERO</th>
+      <th>BLOCO</th>
+      <th>QUANT. VAGAS</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let a of apartamentos">
+      <!-- <td>{{ a.id }}</td> -->
+      <td>{{ a.numero | addtexto : "APT:" }}</td>
+      <td>{{ a.bloco | addtexto : "BL:" }}</td>
+      <td>{{ a.qndvagas }}</td>
+      <td>
+        <a routerLink="/apartamentos/alteracao/{{ a.id }}"
+          ><i class="bi bi-pencil strColor"></i
+        ></a>
+        |
+        <a routerLink="/apartamentos/remocao/{{ a.id }}"
+          ><i class="bi bi-trash strColor"></i
+        ></a>
+      </td>
+    </tr>
+  </tbody>
 </table>

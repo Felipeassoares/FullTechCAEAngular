@@ -1,0 +1,24 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>APARTAMENTO</th>
+            <th>BLOCO VAGA</th>
+            <th>NUMERO DA VAGA</th>
+            
+            <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let v of vagas">
+            <td>{{v.id}}</td>
+            <td>{{v.apartamento | addtexto: "ID:"}} - {{v.numeroApt | addtexto: "AP:"}}</td>
+            <td>{{v.bloco | addtexto: "BL:"}}</td>
+            <td>{{v.numero | addtexto: "N. VAGA:"}}</td>
+            
+            <td>
+                <a routerLink="/vagas/alteracao/{{v.id}}"><i class="bi bi-pencil"></i></a> |
+                <a routerLink="/vagas/remocao/{{v.id}}"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
