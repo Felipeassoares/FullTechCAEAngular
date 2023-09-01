@@ -34,8 +34,6 @@ export class ProprietarioAlteracaoComponent implements OnInit {
     this.service.getProprietarioApi(cpf).subscribe(
       resposta => {
         this.proprietario = resposta;
-        const parts = this.proprietario.dtNascimento.split('/'); // Separa dia, mês e ano
-        this.proprietario.dataNascimento = new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]));
       }
     );
   }
@@ -47,16 +45,12 @@ export class ProprietarioAlteracaoComponent implements OnInit {
   }
 
   alterar(proprietario: Proprietario): void {
-    // Converter a data para o formato "yyyy/MM/dd"
-    const dtNascimentoFormatted = `${proprietario.dataNascimento.getFullYear()}-${(proprietario.dataNascimento.getMonth() + 1).toString().padStart(2, '0')}-${proprietario.dataNascimento.getDate().toString().padStart(2, '0')}`;
-    proprietario.dtNascimento = dtNascimentoFormatted;
-    
-    this.service.putProprietarioApi(proprietario, this.cpf).subscribe({
-      complete: () => this.fechar(),
-      error: erro => {
-        console.error(erro);
-        window.alert(erro);
-      }
+     this.service.putProprietarioApi(proprietario, this.cpf).subscribe({
+       complete: () => this.fechar(),
+       //error: erro => {
+        // console.error(erro);
+        // window.alert(erro);
+      // }
     });
   }
 } 

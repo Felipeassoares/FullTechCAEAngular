@@ -1,3 +1,8 @@
+<div class="mb-3">
+  <label class="form-label">Informe partes do nome:</label>
+  <input type="text" class="form-control" #busca (keyup)="(0)" />
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,7 +11,7 @@
       <th>TELEFONE</th>
       <th>DTNASCIMENTO</th>
       <th>EMAIL</th>
-      <th>APARTAMENTO</th>
+      <th>APTO</th>
       <th>NUM APTO</th>
       <th>BLOCO APTO</th>
       <th>QND VAGAS</th>
@@ -15,22 +20,28 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let p of proprietarios">
+    <tr *ngFor="let p of proprietarios"></tr>
+    <tr *ngFor="let p of proprietarios | filtrarproprietarios : busca.value">
       <td>{{ p.cpf }}</td>
       <td>{{ p.nome }}</td>
+
       <td>{{ p.telefone }}</td>
-      <td>{{ p.dtNascimento }}</td>
+      <td>{{ p.dtNascimento | date : "dd/MM/yyyy" }}</td>
       <td>{{ p.email }}</td>
       <td>{{ p.apartamento }}</td>
       <td>{{ p.numeroApartamento }}</td>
       <td>{{ p.blocoApartamento }}</td>
       <td>{{ p.qndVagasApartamento }}</td>
-      
+
       <td>
-        <a routerLink="/proprietarios/alteracao/{{ p.cpf }}"><i class="bi bi-pencil strColor"></i></a> |
-        <a routerLink="/proprietarios/remocao/{{ p.cpf }}"><i class="bi bi-trash strColor"></i></a>
+        <a routerLink="/proprietarios/alteracao/{{ p.cpf }}"
+          ><i class="bi bi-pencil strColor"></i
+        ></a>
+        |
+        <a routerLink="/proprietarios/remocao/{{ p.cpf }}"
+          ><i class="bi bi-trash strColor"></i
+        ></a>
       </td>
     </tr>
   </tbody>
 </table>
-

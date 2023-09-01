@@ -1,0 +1,35 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>NRO.APT.</th>
+      <th>BLOCO APT.</th>
+      <th>QND. VAGAS</th>
+      <th>CPF PROPRIETÁRIO</th>
+      <th>NOME</th>
+      <th>TELEFONE</th>
+      <th>EMAIL</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let a of apartamentos">
+      <td>{{ a.nroApartamento | addtexto : "APT:" }}</td>
+      <td>{{ a.blocoApartamento | addtexto : "BL:" }}</td>
+      <td>{{ a.qndVagas }}</td>
+      <td>{{ a.cpfProprietario }}</td>
+      <td>{{ a.nomeProprietario }}</td>
+      <td>{{ a.telProprietario }}</td>
+      <td>{{ a.emailProprietario }}</td>
+      <!-- <td>
+        <a routerLink="/apartamentos/alteracao/{{ a.id }}"
+          ><i class="bi bi-pencil strColor"></i
+        ></a>
+        |
+        <a routerLink="/apartamentos/remocao/{{ a.id }}"
+          ><i class="bi bi-trash strColor"></i
+        ></a>
+      </td> -->
+    </tr>
+  </tbody>
+</table>

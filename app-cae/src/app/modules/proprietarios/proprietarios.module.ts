@@ -9,6 +9,7 @@ import { ProprietariosListaComponent } from '../../components/proprietarios/prop
 import { ProprietariosNovoComponent } from '../../components/proprietarios/proprietarios-novo/proprietarios-novo.component';
 import { ProprietariosComponent } from '../../components/proprietarios/proprietarios/proprietarios.component';
 import { ProprietariosRoutingModule } from './proprietarios-routing.module';
+import { FiltrarProprietariosPipe } from 'src/app/pipes/filtrar-proprietarios.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProprietariosRoutingModule } from './proprietarios-routing.module';
     ProprietariosNovoComponent,
     ProprietariosListaComponent,
     ProprietarioAlteracaoComponent,
-    ProprietarioRemocaoComponent
+    ProprietarioRemocaoComponent,
+    FiltrarProprietariosPipe
   ],
   imports: [
     CommonModule,

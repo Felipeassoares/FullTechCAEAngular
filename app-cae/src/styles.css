@@ -45,8 +45,12 @@
 .btnColor {
   background-color: var(--bs-purple);
   color: var(--bs-white);
+}
 
-  /* border-color: var(--bs-purple); */
+.btnColor:hover {
+  background-color: var(--bs-white);
+  color: var(--bs-purple);
+  border-color: var(--bs-purple);
 }
 
 input:focus {

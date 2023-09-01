@@ -1,36 +1,74 @@
-<div class="margem">
-    <h2 class="text-primary text-center">Alteração de Proprietario</h2>
+<div class="container d-flex flex-column" style="min-height: 70vh">
+  <div class="margem">
+    <h2 class="strColor text-center">Alteração de Proprietário</h2>
     <form>
+      <div class="mb-3">
+        <label class="form-label">Proprietario:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.cpf"
+          name="cpf"
+          readonly
+          disabled
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Proprietario:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.cpf" name="cpf" readonly disabled/>
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.nome"
+          name="nome"
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Nome:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.nome" name="nome" />
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Telefone:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.telefone"
+          name="telefone"
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Telefone:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.telefone" name="telefone" />
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Data de Nascimento:</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="proprietario.dtNascimento"
+          name="dtNascimento"
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Data de Nascimento:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.dtNascimento" name="dtNascimento" readonly disabled/>
-          </div>
-          
+      <div class="mb-3">
+        <label class="form-label">Apartamento:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="
+            proprietario.numeroApartamento + '-' + proprietario.blocoApartamento
+          "
+          name="apartamento"
+          readonly
+          disabled
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Apartamento:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.numeroApartamento + '-' + proprietario.blocoApartamento" name="apartamento" readonly disabled/>
-        </div>
-
-        <div>
-            <button class="btn btn-primary borda-botao" (click)="alterar(proprietario)">Alterar Proprietario</button>
-            <button class="btn btn-secondary"(click)="fechar()">Voltar</button>
-        </div>
+      <div>
+        <button
+          class="btn btnColor borda-botao mb-3"
+          (click)="alterar(proprietario)"
+        >
+          Alterar Proprietario
+        </button>
+        <button class="btn btn-secondary mb-3" (click)="fechar()">
+          Voltar
+        </button>
+      </div>
     </form>
+  </div>
 </div>

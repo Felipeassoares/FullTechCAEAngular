@@ -1,44 +1,82 @@
-<div class="margem">
-    <h2 class="text-success text-center">Novo Proprietario</h2>
+<div class="container d-flex flex-column" style="min-height: 70vh">
+  <div class="margem">
+    <h2 class="strColor text-center">Novo Proprietário</h2>
     <form>
+      <div class="mb-3">
+        <label class="form-label">Cpf:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.cpf"
+          name="cpf"
+        />
+        <span *ngIf="proprietarioExistente" style="color: red"
+          ><i>* Este proprietario já está cadastrado no sistema.</i></span
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nome:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.nome"
+          name="nome"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Telefone:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.telefone"
+          name="telefone"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">DtNascimento:</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="proprietario.dtNascimento"
+          name="dtNascimento"
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Cpf:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.cpf" name="cpf"/>
-            <span *ngIf="proprietarioExistente" style="color: red;"><i>* Este proprietario já está cadastrado no sistema.</i></span>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Nome:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.nome" name="nome"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Telefone:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.telefone" name="telefone"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">DtNascimento:</label>
-            <input type="date" class="form-control" [(ngModel)]="proprietario.dtNascimento" name="dtNascimento"/>
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.email"
+          name="email"
+        />
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Email:</label>
-            <input type="text" class="form-control" [(ngModel)]="proprietario.email" name="email"/>
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Apartamento:</label>
+        <select
+          class="form-select"
+          [(ngModel)]="apartamentoSelecionado"
+          name="apartamento"
+        >
+          <option
+            *ngFor="let apartamento of apartamentosDisponiveis"
+            [value]="apartamento.id"
+          >
+            {{ apartamento.numero }} - {{ apartamento.bloco }}
+          </option>
+        </select>
+      </div>
 
-        <div class="mb-3">
-            <label class="form-label">Apartamento:</label>
-            <select class="form-select" [(ngModel)]="apartamentoSelecionado" name="apartamento">
-                <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">
-                    {{ apartamento.numero }} - {{ apartamento.bloco }}
-                </option>
-            </select>
-        </div>
-        
-        
-        
-        <div>
-            <button class="btn btn-success borda-botao" (click)="incluir(proprietario)">Incluir Proprietario</button>
-            <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
-        </div>
+      <div>
+        <button
+          class="btn btnColor borda-botao"
+          (click)="incluir(proprietario)"
+        >
+          Incluir Proprietario
+        </button>
+        <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
+      </div>
     </form>
+  </div>
 </div>
