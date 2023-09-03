@@ -1,40 +1,46 @@
 <div class="container d-flex flex-column" style="min-height: 70vh">
   <div class="margem">
-    <h2 class="strColor text-center">Alteração de Vagas</h2>
+    <h2 class="strColor text-center">Alteração de Proprietário</h2>
     <form>
       <div class="mb-3">
-        <label class="form-label">Id:</label>
+        <label class="form-label">Proprietario:</label>
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="vaga.id"
-          name="id"
+          [(ngModel)]="proprietario.cpf"
+          name="cpf"
           readonly
           disabled
         />
       </div>
 
       <div class="mb-3">
-        <label class="form-label">Numero:</label>
+        <label class="form-label">Nome:</label>
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="vaga.numero"
-          name="numero"
-          (blur)="validarVaga()"
+          [(ngModel)]="proprietario.nome"
+          name="nome"
         />
-        <span *ngIf="vagaExistente" style="color: red"
-          ><i>* Este número de vaga já está cadastrada no sistema.</i></span
-        >
       </div>
 
       <div class="mb-3">
-        <label class="form-label">Bloco:</label>
+        <label class="form-label">Telefone:</label>
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="vaga.bloco"
-          name="bloco"
+          [(ngModel)]="proprietario.telefone"
+          name="telefone"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Data de Nascimento:</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="proprietario.dtNascimento"
+          name="dtNascimento"
         />
       </div>
 
@@ -43,8 +49,9 @@
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="vaga.numeroApt + '-' + vaga.blocoAp"
-          [value]="apartamento"
+          [(ngModel)]="
+            proprietario.numeroApartamento + '-' + proprietario.blocoApartamento
+          "
           name="apartamento"
           readonly
           disabled
@@ -53,19 +60,10 @@
 
       <div>
         <button
-          *ngIf="vagaExistente"
-          class="btn btn-success borda-botao"
-          (click)="alterar(vaga)"
-          disabled
-        >
-          Alterar Vaga
-        </button>
-        <button
-          *ngIf="!vagaExistente"
           class="btn btnColor borda-botao mb-3"
-          (click)="alterar(vaga)"
+          (click)="alterar(proprietario)"
         >
-          Alterar Vaga
+          Alterar Proprietario
         </button>
         <button class="btn btn-secondary mb-3" (click)="fechar()">
           Voltar

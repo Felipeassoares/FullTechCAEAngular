@@ -10,7 +10,8 @@ import { VagaService } from 'src/app/services/vaga.service';
 import { VagaRemocaoComponent } from 'src/app/components/vagas/vaga-remocao/vaga-remocao.component';
 import { VagaAlteracaoComponent } from 'src/app/components/vagas/vaga-alteracao/vaga-alteracao.component';
 import { RouterModule } from '@angular/router';
-import { AddTextoVagaPipe } from 'src/app/pipes/add-texto-vaga.pipe';
+import { FiltrarVagasPipe } from 'src/app/pipes/filtrar-vagas.pipe';
+import { AddTextoVagasPipe } from 'src/app/pipes/add-texto-vagas.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddTextoVagaPipe } from 'src/app/pipes/add-texto-vaga.pipe';
     VagaNovoComponent,
     VagaRemocaoComponent,
     VagaAlteracaoComponent,
-    AddTextoVagaPipe
+    FiltrarVagasPipe,
+    AddTextoVagasPipe
     
   ],
   imports: [

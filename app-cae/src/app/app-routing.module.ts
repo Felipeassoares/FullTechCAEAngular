@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ApartamentosGeralComponent } from './components/apartamentos/apartamentos-geral/apartamentos-geral.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
 
   { path: "apartamentos/alteracao/:id", component: ApartamentoAlteracaoComponent },
   { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent },
+  { path: "apartamentos/geral", component: ApartamentosGeralComponent },
   
   { path: "proprietarios", loadChildren:
   () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule)},

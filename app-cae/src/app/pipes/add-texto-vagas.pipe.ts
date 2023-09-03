@@ -1,12 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'addtextovaga'
+  name: 'addtextovagas'
 })
-export class AddTextoVagaPipe implements PipeTransform {
+export class AddTextoVagasPipe implements PipeTransform {
 
   transform(value: string, texto: string): string {
     return `${texto}  ${value}`;
   }
-
 }

@@ -1,18 +1,24 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { ProprietariosRoutingModule } from './proprietarios-routing.module';
-import { ProprietariosComponent } from '../../components/proprietarios/proprietarios/proprietarios.component';
-import { ProprietariosNovoComponent } from '../../components/proprietarios/proprietarios-novo/proprietarios-novo.component';
-import { ProprietariosListaComponent } from '../../components/proprietarios/proprietarios-lista/proprietarios-lista.component';
-import { ProprietariosService } from 'src/app/services/proprietarios.service';
 import { FormsModule } from '@angular/forms';
+import { ProprietarioAlteracaoComponent } from 'src/app/components/proprietarios/proprietario-alteracao/proprietario-alteracao.component';
+import { ProprietarioRemocaoComponent } from 'src/app/components/proprietarios/proprietario-remocao/proprietario-remocao.component';
+import { ProprietariosService } from 'src/app/services/proprietarios.service';
+import { ProprietariosListaComponent } from '../../components/proprietarios/proprietarios-lista/proprietarios-lista.component';
+import { ProprietariosNovoComponent } from '../../components/proprietarios/proprietarios-novo/proprietarios-novo.component';
+import { ProprietariosComponent } from '../../components/proprietarios/proprietarios/proprietarios.component';
+import { ProprietariosRoutingModule } from './proprietarios-routing.module';
+import { FiltrarProprietariosPipe } from 'src/app/pipes/filtrar-proprietarios.pipe';
 
 @NgModule({
   declarations: [
     ProprietariosComponent,
     ProprietariosNovoComponent,
-    ProprietariosListaComponent
+    ProprietariosListaComponent,
+    ProprietarioAlteracaoComponent,
+    ProprietarioRemocaoComponent,
+    FiltrarProprietariosPipe
   ],
   imports: [
     CommonModule,
