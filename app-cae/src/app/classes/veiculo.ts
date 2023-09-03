@@ -6,8 +6,8 @@ export class Veiculo {
         this.modelo = '';
         this.vaga = undefined;
         this.idVaga = this.vaga;
-        this.numeroVaga = '';
-        this.blocoVaga = '';
+        this.numero = '';
+        this.bloco = '';
     }
 
     placa!: string;
@@ -15,6 +15,6 @@ export class Veiculo {
     modelo!: string;
     vaga?: number | undefined;
     idVaga?: number | undefined;
-    numeroVaga!: string | undefined;
-    blocoVaga!: string | undefined;
+    numero!: string; 
+    bloco!: string ;
 }
