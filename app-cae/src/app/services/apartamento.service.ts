@@ -18,7 +18,8 @@ export class ApartamentoService {
   }
 
   public getApartamentosProprietarioApi() : Observable<ApartamentosProprietarioDto[]> {
-    return this.http.get<ApartamentosProprietarioDto[]>(this.baseUrl);
+    const url = `${this.baseUrl}geral`;
+    return this.http.get<ApartamentosProprietarioDto[]>(url);
   }
 
 

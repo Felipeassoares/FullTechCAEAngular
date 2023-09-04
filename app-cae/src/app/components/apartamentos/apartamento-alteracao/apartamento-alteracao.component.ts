@@ -43,9 +43,10 @@ export class ApartamentoAlteracaoComponent implements OnInit{
 
    alterar(apartamento: Apartamento) : void {
     this.service.putApartamentoApi(apartamento, this.id).subscribe({
-      complete: () => {
-        this.fechar();
-      },
+      next: res => console.log(res),
+      // complete: () => {
+      //   this.fechar();
+      // },
       error: erro => {
         console.error(erro);
         window.alert(erro);
