@@ -57,9 +57,8 @@ export class VeiculosNovoComponent implements OnInit {
          .subscribe({
           complete: () => this.fechar(),
           error: erro => {
-            console.error(erro.message);
-            window.alert(erro)}
-          });
+            console.error(erro.message)
+          }});
     }
 
 }

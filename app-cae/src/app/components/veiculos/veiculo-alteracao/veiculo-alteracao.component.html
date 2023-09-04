@@ -7,7 +7,7 @@
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="veiculo.placa"
+          [(ngModel)]="veiculoDTO.placa"
           name="placa"
           readonly
         />
@@ -17,7 +17,7 @@
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="veiculo.cor"
+          [(ngModel)]="veiculoDTO.cor"
           name="cor"
         />
       </div>
@@ -26,33 +26,45 @@
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="veiculo.modelo"
-          name="preco"
+          [(ngModel)]="veiculoDTO.modelo"
+          name="modelo"
         />
       </div>
+
       <div class="mb-3">
+        <label class="form-label">Vaga:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="veiculoDTO.vaga"
+          name="vaga" readonly
+        />
+      </div>
+
+      <!-- <div class="mb-3">
         <label class="form-label">Vaga Atual:</label>
-        <!--<select class="form-select"  [(ngModel)]="vagaAtualSelecionada" name="vaga" disabled>-->
-        <select class="form-select" disabled>
+        <select class="form-select"  [(ngModel)]="vagaAtualSelecionada" name="vaga" disabled>-->
+      <!-- <select class="form-select" [(ngModel)]="veiculodto.vaga" name="vaga" disabled>
           <option *ngFor="let vaga of vagaAtual" [value]="vaga.id">
             BL: {{ vaga.bloco }} NUM: {{ vaga.numero }}
           </option>
         </select>
-      </div>
+       
+      </div> -->
 
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label class="form-label">Vaga:</label>
         <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
           <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id">
             BL: {{ vaga.bloco }} NUM: {{ vaga.numero }}
           </option>
         </select>
-      </div>
+      </div> -->
 
       <div>
         <button
           class="btn btnColor borda-botao mb-3"
-          (click)="alterar(veiculo)"
+          (click)="alterar(veiculoDTO)"
         >
           Alterar Veiculo
         </button>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vaga } from 'src/app/classes/vaga';
 import { Veiculo } from 'src/app/classes/veiculo';
+import { VeiculoDTO } from 'src/app/classes/veiculo-dto';
+import { VagaService } from 'src/app/services/vaga.service';
 import { VeiculoService } from 'src/app/services/veiculo.service';
 
 @Component({
@@ -14,38 +16,48 @@ export class VeiculoAlteracaoComponent implements OnInit{
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private service: VeiculoService) { }
+    private service: VeiculoService,
+    private vagaService: VagaService) { }
 
-  veiculo: Veiculo = new Veiculo;
+  veiculoDTO: VeiculoDTO = new VeiculoDTO();
+  vaga: Vaga = new Vaga();
+  vagaOcupada: number | undefined;
   placa!: string;
 
   ngOnInit(): void {
     this.placa = this.route.snapshot.paramMap.get('id') as string;
     this.buscar(this.placa);
-    this.carregarVagasDisponiveis();
-    this.vagaSelecionada = this.veiculo.idVaga;
+   // this.carregarVagasDisponiveis();
+  //  this.vagaSelecionada = this.veiculo.idVaga;
    // this.vagaAtualSelecionada = this.veiculo.idVaga;
     
   }
 
   buscar(placa: string): void {
     this.service.getVeiculoApi(placa)
-      .subscribe(resposta => this.veiculo = resposta);
+      .subscribe(resposta => this.veiculoDTO = resposta);
+      
+      if (this.veiculoDTO.vaga !== undefined) {
+        this.vagaService.getVagaApi(this.veiculoDTO.vaga).subscribe(vagaResposta => {
+          this.vaga = vagaResposta;
+        });
+      }
   }
 
-  vagasDisponiveis: Vaga[] = [];
-  vagaAtual: Vaga[] = []; // propriedade para armazenar as vagas ocupadas
-  vagaSelecionada: number | undefined;
-  vagaAtualSelecionada: number | undefined;
+ // vagasDisponiveis: Vaga[] = [];
+ // vagaAtual: Vaga[] = []; // propriedade para armazenar as vagas ocupadas
+ // vagaSelecionada: number | undefined;
+ // vagaAtualSelecionada: number | undefined;
 
-  carregarVagasDisponiveis(): void {    
-    this.service.getVagasDisponiveis().subscribe(vagas => {
-      this.service.getVeiculosApi().subscribe(veiculos => {
-        const vagaAtual = veiculos.map(vc => vc.vaga);
-        this.vagasDisponiveis = vagas.filter(vg => !vagaAtual.includes(vg.id));
-        this.vagaAtual = vagas.filter(vg => vagaAtual.includes(vg.id));
-      });
-    });
+  // carregarVagasDisponiveis(): void {    
+  //   this.service.getVagasDisponiveis().subscribe(vagas => {
+  //     this.service.getVeiculosApi().subscribe(veiculos => {
+  //       const vagaAtual = veiculos.map(vc => vc.vaga);
+  //       this.vagasDisponiveis = vagas.filter(vg => !vagaAtual.includes(vg.id));
+  //       this.vagaAtual = vagas.filter(vg => vagaAtual.includes(vg.id));
+  //     });
+  //   });
+
     // this.service.getVagasDisponiveis().subscribe(vagas => {
     //   this.service.getVeiculosApi().subscribe(veiculos => {
     //     this.vagasDisponiveis = vagas.filter(vg => {
@@ -53,32 +65,26 @@ export class VeiculoAlteracaoComponent implements OnInit{
     //     });
     //   });
     // });
-  }
+ // }
 
 
 
-  fechar() {
+  fechar(): void {
     this.router.navigate(['/veiculos']);
   }
 
-  alterar(veiculo: Veiculo) {
-    if (this.vagaSelecionada !== undefined) {
-      veiculo.idVaga = this.vagaSelecionada;
-    }    
-    
-    // else{
-    //   veiculo.idVaga = this.vagaAtualSelecionada;
+  alterar(veiculoDTO: VeiculoDTO) : void {
+    console.log('aquii', veiculoDTO)
 
-    // }
-    
-    this.service.putVeiculoApi(veiculo, this.placa)
-      .subscribe({
-        complete: () => this.fechar(),
-       /* error: erro => {
-          console.error(erro);
-          window.alert(erro);
-        }*/
-      });
-  }
-
+ 
+    this.service.putVeiculoApi(veiculoDTO, this.placa).subscribe({
+      complete: () => {
+        this.fechar();
+      },
+      error: erro => {
+        console.error(erro);
+       
+      }
+    })
+   }
 }
