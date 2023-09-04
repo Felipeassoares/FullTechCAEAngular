@@ -4,13 +4,15 @@ export class Veiculo {
         this.placa = '';
         this.cor = '';
         this.modelo = '';
-        this.vaga = undefined;
-        this.idVaga = this.vaga;
+        this.numero = '';
+        this.bloco = '';
+        this.idVaga = undefined;          
+        
     }
-
     placa!: string;
     cor!: string
-    modelo!: string;
-    vaga?: number | undefined;
+    modelo!: string;  
+    numero!: string; 
+    bloco!: string; 
     idVaga?: number | undefined;
 }

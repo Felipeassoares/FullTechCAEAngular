@@ -29,7 +29,7 @@ export class VeiculosNovoComponent implements OnInit {
     this.service.getVagasDisponiveis().subscribe(vagas => {
       this.service.getVeiculosApi().subscribe(veiculos => {
         this.vagasDisponiveis = vagas.filter(vg => {
-          return !veiculos.some(vc => vc.vaga === vg.id);
+          return !veiculos.some(vc => vc.idVaga === vg.id);
         });
       });
     });
@@ -57,9 +57,8 @@ export class VeiculosNovoComponent implements OnInit {
          .subscribe({
           complete: () => this.fechar(),
           error: erro => {
-            console.error(erro.message);
-            window.alert(erro)}
-          });
+            console.error(erro.message)
+          }});
     }
 
 }
