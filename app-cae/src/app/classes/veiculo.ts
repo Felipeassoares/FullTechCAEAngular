@@ -14,6 +14,5 @@ export class Veiculo {
     modelo!: string;  
     numero!: string; 
     bloco!: string; 
-   // vaga?: number | undefined;
     idVaga?: number | undefined;
 }

@@ -29,15 +29,13 @@ export class VeiculoAlteracaoComponent implements OnInit{
       .subscribe(resposta => this.veiculo = resposta);
   }
 
-  fechar(): void {
+  fechar() {
     this.router.navigate(['/veiculos']);
   }
 
   alterar(veiculo: Veiculo) : void {
        this.service.putVeiculoApi(veiculo, this.placa).subscribe({
-      complete: () => {
-        this.fechar();
-      },
+      complete: () => this.fechar(),
       error: erro => {
         console.error(erro);
        
