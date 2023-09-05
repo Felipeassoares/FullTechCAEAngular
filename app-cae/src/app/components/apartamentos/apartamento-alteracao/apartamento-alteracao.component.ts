@@ -8,18 +8,18 @@ import { ApartamentoService } from 'src/app/services/apartamento.service';
   templateUrl: './apartamento-alteracao.component.html',
   styleUrls: ['./apartamento-alteracao.component.css']
 })
-export class ApartamentoAlteracaoComponent implements OnInit{
+export class ApartamentoAlteracaoComponent implements OnInit {
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private service: ApartamentoService) { }
-    
-    apartamento: Apartamento = new Apartamento();
-    id!: number;
+
+  apartamento: Apartamento = new Apartamento();
+  id!: number;
 
   ngOnInit(): void {
-   
+
     const id = this.route.snapshot.paramMap.get('id');
 
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -32,25 +32,30 @@ export class ApartamentoAlteracaoComponent implements OnInit{
     }
   }
 
-   buscar(id: number) : void {
+  buscar(id: number): void {
     this.service.getApartamentoApi(id)
-    .subscribe(resposta => this.apartamento = resposta);
-   }
-  
-   fechar() : void {
-    this.router.navigate(['/apartamentos']);
-   }
+      .subscribe(resposta => this.apartamento = resposta);
+  }
 
-   alterar(apartamento: Apartamento) : void {
+  fechar(): void {
+    this.router.navigate(['/apartamentos']);
+  }
+
+  alterar(apartamento: Apartamento): void {
     this.service.putApartamentoApi(apartamento, this.id).subscribe({
       complete: () => {
         this.fechar();
       },
-      error: erro => {
-        console.error(erro);
-        window.alert(erro);
-      }
-    })
-   }
+
+      // error: erro => {
+      //   console.error(erro);
+      //   window.alert(erro);
+      // }
+    });
+    setTimeout(() => {
+      this.fechar();
+    }, 1000);
+
+  }
 }
 
