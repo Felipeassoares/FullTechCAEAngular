@@ -8,7 +8,7 @@
         <tr>
             <th>ID</th>
             <th>APARTAMENTO</th>
-            <th>BLOCO VAGA</th>
+            <!-- <th>BLOCO VAGA</th> -->
             <th>NUMERO DA VAGA</th>
             
             <th></th>
@@ -18,7 +18,7 @@
             <td>{{v.id}}</td>
             <td>{{v.apartamento ? (v.apartamento.toString() | addtextovagas: "ID:") : ''}} - {{v.numeroApt ? (v.numeroApt.toString() | addtextovagas: "N. AP:"): ''}}</td>
             <!-- <td>{{v.apartamento | addtextovagas: "ID:"}} - {{v.numeroApt | addtextovagas: "N.AP"}}</td> -->
-            <td>{{v.bloco | addtextovagas: "BL:"}}</td>
+            <!-- <td>{{v.bloco | addtextovagas: "BL:"}}</td> -->
             <td>{{v.numero | addtextovagas: "N. VG:"}}</td>
             
             <td>
