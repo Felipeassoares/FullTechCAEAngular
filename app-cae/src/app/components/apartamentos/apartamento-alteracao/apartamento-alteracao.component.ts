@@ -17,6 +17,8 @@ export class ApartamentoAlteracaoComponent implements OnInit {
 
   apartamento: Apartamento = new Apartamento();
   id!: number;
+  resposta!: string;
+  estilo!: string;  
 
   ngOnInit(): void {
 
@@ -41,7 +43,33 @@ export class ApartamentoAlteracaoComponent implements OnInit {
     this.router.navigate(['/apartamentos']);
   }
 
+  validarApartamento(): void {
+    this.service.getApartamentosApi().subscribe(ap => {
+      this.apExistente = ap.some(v => (v.numero === this.apartamento.numero) && (v.bloco === this.apartamento.bloco) && v.id != this.apartamento.id);
+    });
+  }    
+
+  apExistente: boolean = false;
   alterar(apartamento: Apartamento): void {
+    if (apartamento.numero == null || apartamento.numero == undefined || apartamento.numero == '') {
+      this.resposta = 'O numero do apartamento deve ser informado.';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (apartamento.bloco == null || apartamento.bloco == undefined || apartamento.bloco == '') {
+      this.resposta = 'O bloco do apartamento deve ser informado.';
+      this.estilo = "alert alert-danger";
+
+       return;
+     }
+
+     if (apartamento.qndvagas <= 0) {
+      this.resposta = 'A quantidade de vagas do apartamento deve ser maior que zero.';
+      this.estilo = "alert alert-danger";
+       return;
+     }     
+
     this.service.putApartamentoApi(apartamento, this.id).subscribe({
       complete: () => {
         this.fechar();

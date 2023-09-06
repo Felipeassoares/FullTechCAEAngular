@@ -21,8 +21,8 @@ export class VagaService {
     return this.http.get<Vaga[]>(this.baseUrl);
   }
 
-  public getVagasVeiculoApi() : Observable<VagasVeiculoDto[]> {
-    const url = `${this.baseUrl}geral`;
+  public getVagasVeiculoApi(idApartamento: number) : Observable<VagasVeiculoDto[]> {
+    const url = `${this.baseUrl}geral/${idApartamento}`;
     return this.http.get<VagasVeiculoDto[]>(url);
   }
 

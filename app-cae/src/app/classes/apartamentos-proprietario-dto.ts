@@ -1,5 +1,6 @@
 export class ApartamentosProprietarioDto {
   constructor(){
+    this.idApartamento = 0;
     this.nroApartamento = '';
     this.blocoApartamento = '';
     this.qndVagas = 0;
@@ -8,7 +9,7 @@ export class ApartamentosProprietarioDto {
     this.telProprietario = '';
     this.emailProprietario = '';
   }
-  idApartamento?: number;
+  idApartamento: number;
   nroApartamento: string;
   blocoApartamento: string;
   qndVagas: number;

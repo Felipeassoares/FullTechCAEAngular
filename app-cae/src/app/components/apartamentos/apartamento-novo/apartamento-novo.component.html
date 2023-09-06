@@ -9,6 +9,7 @@
           class="form-control"
           [(ngModel)]="apartamento.numero"
           name="numero"
+          (blur)="validarApartamento()"
         />
       </div>
 
@@ -19,11 +20,18 @@
           class="form-control"
           [(ngModel)]="apartamento.bloco"
           name="bloco"
+          (blur)="validarApartamento()"
         />
+        <span *ngIf="apExistente" style="color: red"
+          ><i
+            >* Este número/bloco de apartamento já está cadastrada no
+            sistema.</i
+          ></span
+        >
       </div>
 
       <div class="mb-3">
-        <label class="form-label">QndVagas:</label>
+        <label class="form-label">Quant. Vagas:</label>
         <input
           type="text"
           class="form-control"
@@ -37,6 +45,9 @@
           Incluir Apartamento
         </button>
         <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
+      </div>
+      <div>
+        <div *ngIf="resposta" [class]="estilo" class="mt-3">{{ resposta }}</div>
       </div>
     </form>
   </div>

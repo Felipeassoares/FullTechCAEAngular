@@ -39,12 +39,15 @@ import { ApartamentosProprietarioListaComponent } from './components/apartamento
     ApartamentosGeralComponent,
     ApartamentosProprietarioListaComponent
     
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+    
   ],
   providers: [
     ApartamentoService,

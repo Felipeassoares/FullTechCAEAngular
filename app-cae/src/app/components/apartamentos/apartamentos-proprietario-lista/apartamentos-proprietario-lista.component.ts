@@ -14,28 +14,35 @@ export class ApartamentosProprietarioListaComponent implements OnInit{
     private serviceVaga: VagaService) { }
   apartamentos : ApartamentosProprietarioDto[] = [];
   vagas : VagasVeiculoDto[] = [];
+  exibeVaga : boolean = false;
 
   listarApartamentos() : void{
     this.serviceApartamento.getApartamentosProprietarioApi().subscribe({
-      next: resposta => this.apartamentos = resposta,
-      complete:() =>  console.log(this.apartamentos)
+      next: resposta => this.apartamentos = resposta
     }
     );
   }
 
-  listarVagas() : void{
-    this.serviceVaga.getVagasVeiculoApi().subscribe({
+  listarVagas(idApartamento: number) : void{
+    this.serviceVaga.getVagasVeiculoApi(idApartamento).subscribe({
       next: resposta => this.vagas = resposta,
       complete:() =>  console.log(this.vagas)
     }
     );
   }
 
+  carregarVaga(idApartamento: number) : void {
+    this.listarVagas(idApartamento);
+    this.exibeVaga = true;
+  }
+
+  fechar(): void{
+    this.exibeVaga = false;
+  }
 
   ngOnInit(): void {
     this.listarApartamentos();
-    this.listarVagas();
-    
+    //this.listarVagas();
   }
 
 }
