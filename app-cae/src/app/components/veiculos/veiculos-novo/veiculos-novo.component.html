@@ -21,7 +21,7 @@
           type="text"
           class="form-control"
           [(ngModel)]="veiculo.cor"
-          name="cor" (blur)="validarVeiculo()"
+          name="cor" 
         />
       </div>
       <div class="mb-3">
@@ -30,7 +30,7 @@
           type="text"
           class="form-control"
           [(ngModel)]="veiculo.modelo"
-          name="preco" (blur)="validarVeiculo()"
+          name="preco" 
         />
       </div>
       <!--- <div class="mb-3">
@@ -43,7 +43,7 @@
       <div class="mb-3">
         <label class="form-label">Vaga:</label>
         <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
-          <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id" blur="validarVeiculo()">
+          <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id" >
             NUM: {{ vaga.numero }}
           </option>
         </select>

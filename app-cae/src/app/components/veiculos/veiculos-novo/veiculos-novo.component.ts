@@ -14,15 +14,15 @@ export class VeiculosNovoComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: VeiculoService){}
+    private service: VeiculoService) { }
 
   ngOnInit(): void {
     this.carregarVagasDisponiveis();
   }
-  
+
 
   vagasDisponiveis: Vaga[] = [];
-  veiculo: Veiculo = new Veiculo();  
+  veiculo: Veiculo = new Veiculo();
   vagaSelecionada: number | undefined;
   resposta!: string;
   estilo!: string;
@@ -39,51 +39,52 @@ export class VeiculosNovoComponent implements OnInit {
   }
 
 
-    fechar() { 
-      this.router.navigate(['veiculos']) ;
-    }
-  
-    incluir(veiculo: Veiculo) : void {
-      if (veiculo.placa == null || veiculo.placa == undefined || veiculo.placa == '') {
-        this.resposta = 'A placa do veículo deve ser informada';
-        this.estilo = "alert alert-danger";
-        return;
-      }
+  fechar() {
+    this.router.navigate(['veiculos']);
+  }
 
-      if (veiculo.cor == null || veiculo.cor == undefined || veiculo.cor == '') {
-        this.resposta = 'A cor do veículo deve ser informada';
-        this.estilo = "alert alert-danger";
-        return;
-      }
-
-      if (veiculo.modelo == null || veiculo.modelo == undefined || veiculo.modelo == '') {
-        this.resposta = 'O modelo do veículo deve ser informado';
-        this.estilo = "alert alert-danger";
-        return;
-      }
-
-      if (this.vagaSelecionada == null ||this.vagaSelecionada == undefined) {
-        this.resposta = 'A vaga deve ser selecionada';
-        this.estilo = "alert alert-danger";
-        return;
-      }
-
-      if (this.vagaSelecionada !== undefined) {
-        veiculo.idVaga = this.vagaSelecionada;
-        return;
-              }          
-
-
-         this.service.postVeiculoApi(veiculo)
-         .subscribe({
-          complete: () => this.fechar(),
-          error: erro => {
-            console.error(erro.message)
-          }});
+  incluir(veiculo: Veiculo): void {
+    if (veiculo.placa == null || veiculo.placa == undefined || veiculo.placa == '') {
+      this.resposta = 'A placa do veículo deve ser informada';
+      this.estilo = "alert alert-danger";
+      return;
     }
 
-    
-  veiculoExistente: boolean = false; 
+    if (veiculo.cor == null || veiculo.cor == undefined || veiculo.cor == '') {
+      this.resposta = 'A cor do veículo deve ser informada';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (veiculo.modelo == null || veiculo.modelo == undefined || veiculo.modelo == '') {
+      this.resposta = 'O modelo do veículo deve ser informado';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (this.vagaSelecionada == null || this.vagaSelecionada == undefined) {
+      this.resposta = 'A vaga deve ser selecionada';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (this.vagaSelecionada !== undefined) {
+      veiculo.idVaga = this.vagaSelecionada;
+
+    }
+
+
+    this.service.postVeiculoApi(veiculo)
+      .subscribe({
+        complete: () => this.fechar(),
+        error: erro => {
+          console.error(erro.message)
+        }
+      });
+  }
+
+
+  veiculoExistente: boolean = false;
 
   validarVeiculo(): void {
     this.service.getVeiculosApi().subscribe(veiculos => {
