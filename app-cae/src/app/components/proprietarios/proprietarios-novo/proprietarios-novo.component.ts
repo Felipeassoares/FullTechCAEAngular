@@ -25,7 +25,7 @@ export class ProprietariosNovoComponent implements OnInit {
   apartamentoSelecionado: number | undefined;
   resposta!: string ;
   estilo!: string ;
-  cpfValido: boolean = true; // Variável para verificar se o CPF é válido
+  cpfValido: boolean = true; 
   cpfInvalidoMensagem: string = '';
   cpfFormatoInvalidoMensagem: string = '';
 
@@ -42,23 +42,22 @@ export class ProprietariosNovoComponent implements OnInit {
 
   proprietarioExistente: boolean = false;
 
-  // Função para validar o formato do CPF
+
   validarCPF(cpf: string): boolean {
-    // Verifica se o CPF tem 11 dígitos e se não é composto apenas por dígitos repetidos
+
     return /^\d{11}$/.test(cpf) && !/(\d)\1{10}/.test(cpf);
   }
 
   validarProprietario(): void {
     const cpf = this.proprietario.cpf;
-  
-    // Verifica se o CPF é válido
+
     if (cpf && !this.validarCPF(cpf)) {
       this.cpfInvalidoMensagem = 'CPF inválido. Certifique-se de que o CPF tenha 11 dígitos e não seja composto apenas por dígitos repetidos.';
       this.cpfValido = false;
       return;
     } else {
       this.cpfValido = true;
-      this.cpfInvalidoMensagem = ''; // Limpa a mensagem de erro se o CPF for válido
+      this.cpfInvalidoMensagem = ''; 
     }
   
     this.service.getProprietariosApi().subscribe(proprietarios => {
@@ -71,27 +70,24 @@ export class ProprietariosNovoComponent implements OnInit {
   }
 
   incluir(proprietario: Proprietario): void {
-    // Verifica se o CPF já está cadastrado para outro proprietário
     if (this.proprietarioExistente) {
       this.resposta = 'Este CPF já está cadastrado para outro proprietário.';
       this.estilo = 'alert alert-danger';
       return;
     }
   
-    // Verifica se o nome e a data de nascimento não são nulos
     if (!proprietario.nome) {
       this.resposta = 'O nome é obrigatório.';
       this.estilo = 'alert alert-danger';
       return;
     }
 
-    if (!proprietario.dtNascimento) {
+    if (!proprietario.dtNascimento || proprietario.dtNascimento.toString().trim() === '') {
       this.resposta = 'A data de nascimento é obrigatória.';
       this.estilo = 'alert alert-danger';
       return;
-    }
+    }  
   
-    // Verifica se o apartamento foi selecionado
     if (this.apartamentoSelecionado !== undefined) {
       proprietario.apartamento = this.apartamentoSelecionado;
       this.resposta = 'Inclusão realizado com sucesso.';
@@ -103,7 +99,6 @@ export class ProprietariosNovoComponent implements OnInit {
       return
     }
   
-    // Se tudo estiver válido, tenta incluir o proprietário
     this.service.postProprietarioApi(proprietario).subscribe({
       complete: () => this.fechar(),
     });

@@ -59,13 +59,16 @@ if (!proprietario.dtNascimento) {
   return;
 }
 
-// Se tudo estiver válido, tenta incluir o proprietário
-this.service.postProprietarioApi(proprietario).subscribe({
-  complete: () => this.fechar(),
+
+this.service.putProprietarioApi(proprietario, this.cpf).subscribe({
+  complete: () => {
+    this.fechar();
+  }
 });
 setTimeout(() => {
   this.fechar();
-}, 2000);
+}, 1000);
+
 }
 }
 

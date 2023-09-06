@@ -8,7 +8,7 @@ export class Proprietario {
     this.numeroApartamento = '';
     this.blocoApartamento = '';
     this.qndVagasApartamento = 0;
-    this.dtNascimento = new Date(); 
+    this.dtNascimento = undefined; 
   }
 
   cpf?: string;
@@ -19,5 +19,5 @@ export class Proprietario {
   numeroApartamento: string;
   blocoApartamento: string;
   qndVagasApartamento: number;
-  dtNascimento: Date;
+  dtNascimento?: Date;
 }
