@@ -1,5 +1,7 @@
-<app-menu></app-menu>
+<app-menu [usuario]="nomeUsuario" (novoEvento)="mostrar($event)"></app-menu>
+
+
 <div class="container">
-  <router-outlet></router-outlet>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
 </div>
 <app-rodape></app-rodape>

@@ -9,8 +9,7 @@
           class="form-control"
           [(ngModel)]="veiculo.placa"
           name="placa"
-          readonly
-          disabled
+          readonly disabled
         />
       </div>
       <div class="mb-3">
@@ -37,8 +36,8 @@
         <input
           type="text"
           class="form-control"
-          [(ngModel)]="'BL: ' + veiculo.bloco + ' - N.VG: ' + veiculo.numero"
-          name="vaga" readonly
+          [(ngModel)]="'N.VG: ' + veiculo.numero"
+          name="vaga" readonly disabled
         />
       </div>
       <div>

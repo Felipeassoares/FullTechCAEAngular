@@ -44,7 +44,7 @@
         <label class="form-label">Vaga:</label>
         <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
           <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id">
-            BL: {{ vaga.bloco }} NUM: {{ vaga.numero }}
+            NUM: {{ vaga.numero }}
           </option>
         </select>
       </div>
