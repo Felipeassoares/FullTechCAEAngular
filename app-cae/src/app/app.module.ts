@@ -21,6 +21,7 @@ import { ApartamentoService } from './services/apartamento.service';
 import { VagaService } from './services/vaga.service';
 import { ApartamentosGeralComponent } from './components/apartamentos/apartamentos-geral/apartamentos-geral.component';
 import { ApartamentosProprietarioListaComponent } from './components/apartamentos/apartamentos-proprietario-lista/apartamentos-proprietario-lista.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ApartamentosProprietarioListaComponent } from './components/apartamento
     AddTextoPipe,
     RodapeComponent,
     ApartamentosGeralComponent,
-    ApartamentosProprietarioListaComponent
+    ApartamentosProprietarioListaComponent,
+    LoginComponent
     
   ],
   imports: [
