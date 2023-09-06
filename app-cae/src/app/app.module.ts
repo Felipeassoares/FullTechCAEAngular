@@ -41,12 +41,15 @@ import { LoginComponent } from './components/login/login.component';
     ApartamentosProprietarioListaComponent,
     LoginComponent
     
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+    
   ],
   providers: [
     ApartamentoService,
