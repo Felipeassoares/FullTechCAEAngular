@@ -15,13 +15,13 @@ const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "apresentacao", component: ApresentacaoComponent },
   { path: "apartamentos", component: ApartamentosComponent },
-  { path: "apartamentos/novo", component: ApartamentoNovoComponent },
+  { path: "apartamentos/novo", component: ApartamentoNovoComponent, canActivate: [AuthGuard]},
 
   {path: "veiculos", loadChildren: 
   () => import ('./modules/veiculos/veiculos.module').then(m => m.VeiculosModule)},
 
   { path: "apartamentos/alteracao/:id", component: ApartamentoAlteracaoComponent, canActivate: [AuthGuard]},
-  { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent },
+  { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent, canActivate: [AuthGuard] },
   { path: "apartamentos/geral", component: ApartamentosGeralComponent },
   
   { path: "proprietarios", loadChildren:
