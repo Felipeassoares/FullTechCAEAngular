@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column" style="min-height: 70vh">
   <div class="margem">
-    <h2 class="strColor text-center">Alteração de Veiculo</h2>
+    <h2 class="strColor text-center">Alteração de Veículo</h2>
     <form>
       <div class="mb-3">
         <label class="form-label">Placa:</label>
@@ -9,7 +9,8 @@
           class="form-control"
           [(ngModel)]="veiculo.placa"
           name="placa"
-          readonly disabled
+          readonly
+          disabled
         />
       </div>
       <div class="mb-3">
@@ -18,7 +19,7 @@
           type="text"
           class="form-control"
           [(ngModel)]="veiculo.cor"
-          name="cor" 
+          name="cor"
         />
       </div>
       <div class="mb-3">
@@ -37,7 +38,9 @@
           type="text"
           class="form-control"
           [(ngModel)]="'N.VG: ' + veiculo.numero"
-          name="vaga" readonly disabled
+          name="vaga"
+          readonly
+          disabled
         />
       </div>
       <div>
@@ -45,7 +48,7 @@
           class="btn btnColor borda-botao mb-3"
           (click)="alterar(veiculo)"
         >
-          Alterar Veiculo
+          Alterar Veículo
         </button>
         <button class="btn btn-secondary mb-3" (click)="fechar()">
           Voltar

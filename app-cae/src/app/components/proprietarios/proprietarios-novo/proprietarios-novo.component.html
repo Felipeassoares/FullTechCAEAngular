@@ -4,8 +4,13 @@
     <form>
       <div class="mb-3">
         <label class="form-label">Cpf:</label>
-        <input type="text" class="form-control" [(ngModel)]="proprietario.cpf" name="cpf"
-          (blur)="validarProprietario()" />
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.cpf"
+          name="cpf"
+          (blur)="validarProprietario()"
+        />
         <span *ngIf="!cpfValido" style="color: red">
           <i>{{ cpfInvalidoMensagem }}</i>
         </span>
@@ -13,37 +18,67 @@
           <i>* Este CPF já está cadastrado para outro proprietário.</i>
         </span> -->
       </div>
-      
+
       <div class="mb-3">
         <label class="form-label">Nome:</label>
-        <input type="text" class="form-control" [(ngModel)]="proprietario.nome" name="nome" />
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.nome"
+          name="nome"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label">Telefone:</label>
-        <input type="text" class="form-control" [(ngModel)]="proprietario.telefone" name="telefone" />
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.telefone"
+          name="telefone"
+        />
       </div>
       <div class="mb-3">
         <label class="form-label">DtNascimento:</label>
-        <input type="date" class="form-control" [(ngModel)]="proprietario.dtNascimento" name="dtNascimento" />
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="proprietario.dtNascimento"
+          name="dtNascimento"
+        />
       </div>
 
       <div class="mb-3">
         <label class="form-label">Email:</label>
-        <input type="text" class="form-control" [(ngModel)]="proprietario.email" name="email" />
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="proprietario.email"
+          name="email"
+        />
       </div>
 
       <div class="mb-3">
         <label class="form-label">Apartamento:</label>
-        <select class="form-select" [(ngModel)]="apartamentoSelecionado" name="apartamento">
-          <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">
+        <select
+          class="form-select"
+          [(ngModel)]="apartamentoSelecionado"
+          name="apartamento"
+        >
+          <option
+            *ngFor="let apartamento of apartamentosDisponiveis"
+            [value]="apartamento.id"
+          >
             {{ apartamento.numero }} - {{ apartamento.bloco }}
           </option>
         </select>
       </div>
 
       <div>
-        <button class="btn btnColor borda-botao" (click)="incluir(proprietario)">
-          Incluir Proprietario
+        <button
+          class="btn btnColor borda-botao"
+          (click)="incluir(proprietario)"
+        >
+          Incluir Proprietário
         </button>
         <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
       </div>
