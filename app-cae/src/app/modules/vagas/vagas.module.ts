@@ -12,7 +12,6 @@ import { VagaAlteracaoComponent } from 'src/app/components/vagas/vaga-alteracao/
 import { RouterModule } from '@angular/router';
 import { FiltrarVagasPipe } from 'src/app/pipes/filtrar-vagas.pipe';
 import { AddTextoVagasPipe } from 'src/app/pipes/add-texto-vagas.pipe';
-import { AddTextoVagaPipe } from 'src/app/pipes/add-texto-vaga.pipe';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { AddTextoVagaPipe } from 'src/app/pipes/add-texto-vaga.pipe';
     VagaRemocaoComponent,
     VagaAlteracaoComponent,
     FiltrarVagasPipe,
-    AddTextoVagasPipe,
-    AddTextoVagaPipe
+    AddTextoVagasPipe
     
   ],
   imports: [

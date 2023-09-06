@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Apartamento } from '../classes/apartamento';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { ApartamentosProprietarioDto } from '../classes/apartamentos-proprietario-dto';
 
 
 @Injectable()
@@ -15,6 +16,12 @@ export class ApartamentoService {
   public getApartamentosApi() : Observable<Apartamento[]> {
     return this.http.get<Apartamento[]>(this.baseUrl);
   }
+
+  public getApartamentosProprietarioApi() : Observable<ApartamentosProprietarioDto[]> {
+    const url = `${this.baseUrl}geral`;
+    return this.http.get<ApartamentosProprietarioDto[]>(url);
+  }
+
 
   public getApartamentoApi(id: number) : Observable<Apartamento> {
     const url = `${this.baseUrl}${id}`;

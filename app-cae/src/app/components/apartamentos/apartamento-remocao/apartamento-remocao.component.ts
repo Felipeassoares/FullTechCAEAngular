@@ -41,5 +41,10 @@ export class ApartamentoRemocaoComponent implements OnInit{
       {
        complete: () =>  this.fechar(),
     });
+    
+    setTimeout(() => {
+      this.fechar();
+    }, 1000);
+
   }
 }
