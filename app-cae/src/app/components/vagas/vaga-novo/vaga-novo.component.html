@@ -4,54 +4,30 @@
     <form>
       <div class="mb-3">
         <label class="form-label">Numero da vaga:</label>
-        <input
-          type="text"
-          class="form-control"
-          [(ngModel)]="vaga.numero"
-          name="numero"
-          (blur)="validarVaga()"
-        />
-        <span *ngIf="vagaExistente" style="color: red"
-          ><i>* Este número de vaga já está cadastrada no sistema.</i></span
-        >
+        <input type="text" class="form-control" [(ngModel)]="vaga.numero" name="numero" (blur)="validarVaga()" />
+        <span *ngIf="vagaExistente" style="color: red"><i>* Este número de vaga já está cadastrada no
+            sistema.</i></span>
       </div>
 
       <!-- <div class="mb-3">
         <label class="form-label">Bloco:</label>
-        <input
-          type="text"
-          class="form-control"
-          [(ngModel)]="vaga.bloco"
-          name="bloco"
-        />
+        <input type="text" class="form-control" [(ngModel)]="vaga.bloco" name="bloco" />
       </div> -->
 
       <div class="mb-3">
         <label class="form-label">Apartamento:</label>
         <select class="form-select" [(ngModel)]="vaga.idAP" name="idAP">
-          <option
-            *ngFor="let apartamento of apartamentosDisponiveis"
-            [value]="apartamento.id"
-          >
+          <option *ngFor="let apartamento of apartamentosDisponiveis" [value]="apartamento.id">
             {{ apartamento.numero }}-{{ apartamento.bloco }}
           </option>
         </select>
       </div>
 
       <div>
-        <button
-          *ngIf="vagaExistente"
-          class="btn btnColor borda-botao"
-          (click)="incluir(vaga)"
-          disabled
-        >
+        <button *ngIf="vagaExistente" class="btn btnColor borda-botao" (click)="incluir(vaga)" disabled>
           Incluir Vaga
         </button>
-        <button
-          *ngIf="!vagaExistente"
-          class="btn btnColor borda-botao"
-          (click)="incluir(vaga)"
-        >
+        <button *ngIf="!vagaExistente" class="btn btnColor borda-botao" (click)="incluir(vaga)">
           Incluir Vaga
         </button>
         <button class="btn btn-secondary" (click)="fechar()">Voltar</button>

@@ -17,6 +17,8 @@ export class ProprietarioAlteracaoComponent implements OnInit {
 
   proprietario: Proprietario = new Proprietario();
   cpf!: string;
+  resposta!: string;
+  estilo!: string; 
 
   ngOnInit(): void {
 
@@ -45,12 +47,25 @@ export class ProprietarioAlteracaoComponent implements OnInit {
   }
 
   alterar(proprietario: Proprietario): void {
-     this.service.putProprietarioApi(proprietario, this.cpf).subscribe({
-       complete: () => this.fechar(),
-       //error: erro => {
-        // console.error(erro);
-        // window.alert(erro);
-      // }
-    });
-  }
-} 
+if (!proprietario.nome) {
+  this.resposta = 'O nome é obrigatório.';
+  this.estilo = 'alert alert-danger';
+  return;
+}
+
+if (!proprietario.dtNascimento) {
+  this.resposta = 'A data de nascimento é obrigatória.';
+  this.estilo = 'alert alert-danger';
+  return;
+}
+
+// Se tudo estiver válido, tenta incluir o proprietário
+this.service.postProprietarioApi(proprietario).subscribe({
+  complete: () => this.fechar(),
+});
+setTimeout(() => {
+  this.fechar();
+}, 2000);
+}
+}
+
