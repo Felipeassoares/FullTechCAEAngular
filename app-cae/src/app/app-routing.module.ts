@@ -7,18 +7,22 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ApartamentoAlteracaoComponent } from './components/apartamentos/apartamento-alteracao/apartamento-alteracao.component';
 import { ApartamentoRemocaoComponent } from './components/apartamentos/apartamento-remocao/apartamento-remocao.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ApartamentosGeralComponent } from './components/apartamentos/apartamentos-geral/apartamentos-geral.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "apresentacao", component: ApresentacaoComponent },
   { path: "apartamentos", component: ApartamentosComponent },
-  { path: "apartamentos/novo", component: ApartamentoNovoComponent },
+  { path: "apartamentos/novo", component: ApartamentoNovoComponent, canActivate: [AuthGuard]},
 
   {path: "veiculos", loadChildren: 
   () => import ('./modules/veiculos/veiculos.module').then(m => m.VeiculosModule)},
 
-  { path: "apartamentos/alteracao/:id", component: ApartamentoAlteracaoComponent },
-  { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent },
+  { path: "apartamentos/alteracao/:id", component: ApartamentoAlteracaoComponent, canActivate: [AuthGuard]},
+  { path: "apartamentos/remocao/:id", component: ApartamentoRemocaoComponent, canActivate: [AuthGuard] },
+  { path: "apartamentos/geral", component: ApartamentosGeralComponent },
   
   { path: "proprietarios", loadChildren:
   () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule)},
@@ -29,6 +33,8 @@ const routes: Routes = [
 
   { path: "usuarios", loadChildren:
   () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule)},
+
+  { path: "login", component: LoginComponent },
 
   { path:"**", component: NotFoundComponent }
 ];

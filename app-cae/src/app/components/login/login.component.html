@@ -1,0 +1,27 @@
+<div class="container d-flex flex-column" style="min-height: 70vh">
+<div class="margem">
+    <h2 class=" text-center strColor">Efetuar Login</h2>
+    <form>
+        <div class="mb-3">
+            <label class="form-label strColor">Usuário:</label>
+            <input type="text" class="form-control" [(ngModel)]="user.nome" name="nome"  />
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label strColor">Senha:</label>
+            <input type="password" class="form-control" [(ngModel)]="user.senha" name="senha" />
+        </div>        
+
+        <div class="mb-3">
+            <button class="btn btnColor " (click)="validar(user)">Login</button> 
+        </div>
+
+        <div *ngIf="erro">
+            <div class="alert alert-danger">
+                {{erro}}
+            </div>
+        </div>
+
+    </form>    
+</div>
+</div>

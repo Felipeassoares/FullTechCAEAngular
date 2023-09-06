@@ -32,6 +32,17 @@ export class ProprietariosNovoComponent implements OnInit {
     });
   }
 
+  proprietarioExistente: boolean = false;
+
+  validarProprietario(): void {
+
+    this.service.getProprietariosApi().subscribe(proprietarios => {
+      this.proprietarioExistente = proprietarios.some(prop => prop.cpf === this.proprietario.cpf);
+
+    });
+
+  }
+
   fechar(): void {
     this.router.navigate(['proprietarios']);
   }
@@ -41,7 +52,6 @@ export class ProprietariosNovoComponent implements OnInit {
       proprietario.apartamento = this.apartamentoSelecionado;
     }
   
-    proprietario.dtNascimento.replace('/', '-');
     this.service.postProprietarioApi(proprietario)
       .subscribe({
         complete: () => this.fechar(),

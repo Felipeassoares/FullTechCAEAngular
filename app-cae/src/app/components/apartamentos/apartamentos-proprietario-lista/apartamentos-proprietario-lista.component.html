@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-striped col-md-6">
+        <thead>
+          <tr>
+            <!-- <th>ID</th> -->
+            <th>APARTAMENTO</th>
+            <th>PROPRIETÁRIO</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let a of apartamentos">
+            <td>
+              {{ a.nroApartamento | addtexto : "APT:" }}-{{
+                a.blocoApartamento
+              }}
+            </td>
+            <td>{{ a.nomeProprietario }}</td>
+            <td>
+              <div (click)="carregarVaga(a.idApartamento)">
+                <i class="bi bi-eye strColor"></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div
+      *ngIf="exibeVaga"
+      class="col-md-5"
+      style="background-color: rgba(0, 0, 0, 0.5);"
+    >
+      
+      <table
+        class="table table-striped mt-3"
+        style="background-color: rgba(0, 0, 0, 0.5)"
+      >
+        <thead>
+          <tr>
+            <th>VAGA</th>
+            <th>VEÍCULO</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let v of vagas">
+            <td>{{ v.nroVaga | addtexto : "VG:" }}-{{ v.blocoVaga }}</td>
+            <td *ngIf="v.placaVeiculo">
+              {{ v.placaVeiculo | addtexto : "PL:" }}
+              {{ v.corVeiculo | addtexto : "COR:" }}
+              {{ v.modeloVeiculo | addtexto : "MOD:" }}
+            </td>
+            <td *ngIf="!v.placaVeiculo"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-secondary mb-3" (click)="fechar()">Fechar</button>
+    </div>
+  </div>
+</div>

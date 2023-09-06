@@ -1,37 +1,74 @@
-<div class="margem">
-    <h2 class="text-success text-center">Novo Veiculo</h2>
+<div class="container d-flex flex-column" style="min-height: 70vh">
+  <div class="margem">
+    <h2 class="strColor text-center">Novo Veículo</h2>
     <form>
-        <div class="mb-3">
-            <label class="form-label">Placa:</label>
-            <input type="text" class="form-control" [(ngModel)]="veiculo.placa" name="placa"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Cor:</label>
-            <input type="text" class="form-control" [(ngModel)]="veiculo.cor" name="cor"/>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Modelo:</label>
-            <input type="text" class="form-control" [(ngModel)]="veiculo.modelo" name="preco"/>
-        </div>
-       <!--- <div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label">Placa:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="veiculo.placa"
+          name="placa"
+          (blur)="validarVeiculo()"
+        />
+        <span *ngIf="veiculoExistente" style="color: red"
+          ><i>* Este veículo já está cadastrado</i></span
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Cor:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="veiculo.cor"
+          name="cor"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Modelo:</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="veiculo.modelo"
+          name="preco"
+        />
+      </div>
+      <!--- <div class="mb-3">
             <label class="form-label">Vaga:</label>
             <select class="form-select" [(ngModel)]="veiculo.vaga" name="vaga">
                 <option *ngFor="let vg of vagas" [value]="vg.">{{vg.bloco}} {{vg.numero}}</option>
             </select>
         </div>-->
 
-              <div class="mb-3">
-            <label class="form-label">Vaga:</label>
-            <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
-                <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id">BL: {{vaga.bloco}} NUM: {{vaga.numero}}</option>
-            </select>
-        </div>     
-        
-     
-        
-        <div>
-            <button class="btn btn-success borda-botao" (click)="incluir(veiculo)">Incluir Veiculo</button>
-            <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
-        </div>
+      <div class="mb-3">
+        <label class="form-label">Vaga:</label>
+        <select class="form-select" [(ngModel)]="vagaSelecionada" name="vaga">
+          <option *ngFor="let vaga of vagasDisponiveis" [value]="vaga.id">
+            NUM: {{ vaga.numero }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <button
+          *ngIf="veiculoExistente"
+          class="btn btn-success borda-botao"
+          (click)="incluir(veiculo)"
+          disabled
+        >
+          Incluir Veiculo
+        </button>
+        <button
+          *ngIf="!veiculoExistente"
+          class="btn btnColor borda-botao mb-3"
+          (click)="incluir(veiculo)"
+        >
+          Incluir Veiculo
+        </button>
+        <button class="btn btn-secondary mb-3" (click)="fechar()">
+          Voltar
+        </button>
+      </div>
     </form>
+  </div>
 </div>
