@@ -32,6 +32,9 @@
         </button>
         <button class="btn btn-secondary" (click)="fechar()">Voltar</button>
       </div>
+      <div>
+        <div *ngIf="resposta" [class]="estilo" class="mt-3">{{ resposta }}</div>
+      </div>
     </form>
   </div>
 </div>

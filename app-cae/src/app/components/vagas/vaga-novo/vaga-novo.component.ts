@@ -35,6 +35,8 @@ export class VagaNovoComponent implements OnInit {
   }
 
   vagaExistente: boolean = false;
+  resposta!: string;
+  estilo!: string;
 
   validarVaga(): void {
     this.service.getVagasApi().subscribe(vagas => {
@@ -50,6 +52,18 @@ export class VagaNovoComponent implements OnInit {
     if (this.vaga.idAP !== undefined) {
       vaga.idAP = this.vaga.idAP;
     }
+
+    if (vaga.numero == null || vaga.numero == undefined || vaga.numero == '') {
+      this.resposta = 'O número da vaga deve ser informado.';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (vaga.idAP == null || vaga.idAP == undefined || vaga.idAP == 0) {
+      this.resposta = 'O apartamento deve ser informado.';
+      this.estilo = "alert alert-danger";
+      return;
+    }    
 
     this.service.postVagaApi(vaga)
       .subscribe({
