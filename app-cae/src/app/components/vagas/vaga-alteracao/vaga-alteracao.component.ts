@@ -36,6 +36,8 @@ export class VagaAlteracaoComponent implements OnInit {
   }
 
   vagaExistente: boolean = false;
+  resposta!: string;
+  estilo!: string;
 
   validarVaga(): void {
     this.service.getVagasApi().subscribe(vagas => {
@@ -61,12 +63,20 @@ export class VagaAlteracaoComponent implements OnInit {
   }
 
   alterar(vaga: Vaga): void {
+    if (vaga.numero == null || vaga.numero == undefined || vaga.numero == '') {
+      this.resposta = 'O número da vaga deve ser informado.';
+      this.estilo = "alert alert-danger";
+      return;
+    }
+
+    if (vaga.apartamento == null || vaga.apartamento == undefined || vaga.apartamento == 0) {
+      this.resposta = 'O apartamento deve ser informado.';
+      this.estilo = "alert alert-danger";
+      return;
+    }    
+
     this.service.putVagaApi(vaga, this.id).subscribe({
-      complete: () => this.fechar()/*,
-      error: erro => {
-        console.error(erro);
-        window.alert(erro);
-      }*/
+      complete: () => this.fechar()
     });
     setTimeout(() => {
       this.fechar();
